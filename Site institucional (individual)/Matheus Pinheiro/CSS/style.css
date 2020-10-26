@@ -1,0 +1,135 @@
+/* 
+Verde: #21b0a8
+Branco: #FFFFFF
+Cinza: #616161
+Verde escuro: #006666
+Laranja: #f93400 
+*/
+
+/* GLOBAL */
+*{
+    margin:0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin:0;
+    padding: 0;
+    background-color:#21b0a8 ;
+}
+
+.container {
+    width: 90%;
+    height: 50px;
+    margin: auto;
+}
+
+.botao-global {
+    background-color:#f93400 ;
+    color: white;
+    border: none;
+    width: 60px;
+    height: 30px;
+}
+
+/* FIM GLOBAL */
+
+/* HEADER */
+.header {
+    background-color: #ffffff ;
+    height: 80px;
+    padding-top: 35px; 
+    border-bottom:#006666 solid 5px;
+}
+
+.header .nav .menu-atual a {
+    color: #006666 ;
+    text-decoration: underline;
+    
+}
+/* FIM HEADER */
+
+/* NAV */
+
+.titulo-header h1,
+.nav ul {
+    margin:0;
+    
+}
+
+.titulo-header {
+    float: left;
+    color: #006666;
+}
+
+.nav{
+    text-align: center;
+}
+
+.nav a{
+    text-decoration: none;
+    color: #616161 ;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.nav li{
+    display: inline-block;
+    padding: 14px 12px 0px 12px;
+}
+/* FIM NAV */
+
+/* SHOWCASE */
+
+.showcase {
+    background-image: url(../img/transplante.png);
+    text-align: center;
+    min-height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.showcase h1 {
+    font-size: 50px;
+    padding-top: 160px;
+}
+
+.showcase p {
+    font-size: 22px;
+}
+/* SHOWCASE FIM */
+
+/* INFORACOES */
+
+.informacoes {
+    background-color:#006666;
+    color: white;
+    padding: 35px 0px 250px 0px;
+}
+
+.conosco{
+    float: left;
+}
+
+.informacoes form {
+    float: right;
+    margin-top: 3px;
+}
+
+.informacoes input{
+    height: 25px;
+    width: 255px;
+}
+
+.contato h1 {
+    margin-top: 10px;
+    padding: 5;
+}
+
+.contato p {
+    color: black;
+}
+
+/* FIM INFORMACOES */
+

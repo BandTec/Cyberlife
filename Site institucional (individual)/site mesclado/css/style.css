@@ -1,0 +1,186 @@
+/* GLOBAL */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #66CDAA;
+  
+}
+
+.container{
+  width: 80%; 
+  margin: auto;
+  height: 50px;
+}
+
+/* Content e sticky são para fixar o header (Jorge e Bruno)  */
+.content {
+  padding: 0;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+/* FIM GLOBAL */
+
+/* HEADER & NAV */
+
+.header{
+  background-color: #363636;
+  height: 80px;
+  padding-top: 30px;
+  border-bottom: #66CDAA solid 5px;
+}
+
+.header .nav .home, 
+.header span{
+
+  color: #66CDAA;
+}
+.header .nav .home, 
+.header z{
+  color: white;
+}
+
+.title-header h1,
+.nav ul
+{
+  margin: -5px;
+}
+
+.title-header{
+  float: left;
+  color: #ffffff;
+  font-size: 23px;
+  
+}
+
+.title-header .icone {
+width: 80px;
+margin:-80px 0px 0px 200px;
+}
+
+.nav{
+  float: right;
+  margin-top: 10px;
+}
+
+.nav a{
+  text-decoration: none;
+  color: #66CDAA;
+}
+
+.nav li{
+  display: inline-block;
+  padding: 20px;
+  padding: 10px 20px 0 20px;
+}
+
+/* FIM HEADER & NAV */
+
+/* SHOWCASE */
+.showcase{
+  background-image: url(../img/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  min-height: 400px;
+  border-bottom: #66CDAA solid 5px;
+  padding-top: 30px;
+}
+.showcase z{
+  color: #66CDAA;
+}
+
+.showcase h1{
+  margin: 0;  
+  font-size: 55px;
+  padding-top: 70px;
+}
+
+/* FIM SHOWCASE */
+
+/* INICIO BOX */
+
+.box{
+  margin-left: 0;
+  overflow: auto;
+  /* border-bottom: #66CDAA solid 5px */
+}
+
+.box .box-item{
+text-align: center;
+width: 300px;
+float: left;
+margin: 40px 20px 0px 80px;
+color:#363636;
+}
+
+.box img{
+height: 100px;
+
+}
+
+/* FIM BOX */
+
+/* INICIO QUEM SOMOS */
+.quemsomos {
+  margin-left: 0;
+  margin-top: 20px;
+  overflow: auto;    
+}
+.quemsomos h1{
+  color: #363636;
+  text-align: center;
+}
+.quemsomos z{
+  color: #66CDAA;
+}
+.quemsomos .foto-item {
+  text-align: center;
+  width: 300px; 
+  float: left;
+  margin: 40px 20px -20px 80px;
+  color: #363636;
+  
+}
+
+.quemsomos img {
+  border-radius: 90px;
+}
+
+.box-sobre{ 
+ width: 700px;
+ height: 260px;
+ background-color: #363636;
+ background-size: cover;
+ text-align: center;
+ padding: 30px 30px 0px 30px;
+ margin-left: 415px;
+ margin-bottom: 100px;
+ border-radius: 20px;
+ color: white;
+ font-size: 26px;
+}
+/* INICIO FOOTER  */
+.footer {
+  background-color:#363636 ;
+  overflow: auto;
+  
+}
+.footer {
+  text-align: center;
+  margin: 0px;
+  padding: 20px;
+ 
+}
+
+/* FIM FOOTER */
