@@ -83,6 +83,8 @@ body {
   color: #ffffff;
 }
 
+
+
 .nav .contato1 :hover {
   transition: 0.5s;
   color: #ffffff;
@@ -282,7 +284,7 @@ margin-left: 20px;
 
 .contato {
   background-color: white;
-  height: 380px;
+  height: 450px;
 }
 
 .box-inicio-cont {
@@ -291,7 +293,7 @@ margin-left: 20px;
   width: 1070px;
   border-radius: 10px;
   margin-top: 10px;
-  position: absolute;
+
 }    
 
 .box-contato {
@@ -346,6 +348,7 @@ margin-left: 20px;
   margin-left: 250px;
   font-weight: bold;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .contato .contatar h3 , p {
@@ -362,13 +365,30 @@ margin-left: 20px;
   color: #363636
 }
 
-
 /* FIM CONTATO */
+
+/* SIMULADOR FINANCEIRO */
+
+.div-calc {
+  margin-top:15px;
+}
+
+.div-calc p {
+  margin-top: -50px;
+  margin-left: 30px;
+}
+
+.calc-financeira-icone{
+  width:50px;  
+} 
+
+/* FIM SIMULDOR */
 /* FIM COMO FUNCIONA */
 
 /* RODAPE */
 
 .rodape {
+  
   background-color: #363636;
   height: 70px;
   text-align: center;

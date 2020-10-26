@@ -1,10 +1,10 @@
 function entrar() {
     if (email.value == 'admin' && senha.value == 'cyberlife') {
-        window.location.href = "dashboard_admin.html"
+        window.location.href = "dashboard.html"
         //window.location.href faz trocar de tela
     }
     else if (email.value == 'usuario' && senha.value == '123') {
-        window.location.href = "dashboard.html"
+        window.location.href = "dashboard_usuario.html"
     }
     else {
         alert("ID ou senha incorretos")

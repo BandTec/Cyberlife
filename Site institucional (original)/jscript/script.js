@@ -22,6 +22,7 @@ function limpar() {
     nome.value = "";
     email.value = "";
     telefone.value = "";
-    
+
+    alert("E-mail enviado com sucesso")
 }
 

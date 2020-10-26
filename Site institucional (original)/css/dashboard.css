@@ -232,6 +232,15 @@ margin:-80px 0px 0px 200px;
   width: 100%;
 }
 
+.confirmar {
+  border: none;
+  border: solid 1px;
+  border-radius: 10px;
+  width: 70px;
+  background-color: #66CDAA;
+  cursor: pointer;
+}
+
 /* FIM PAINEL DASHBOARD */
 
 /* RODAPE */

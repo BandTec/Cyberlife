@@ -8,22 +8,52 @@ body{
     background-color: white;
     width:500px;
     margin-left: 18%;
-    height:600px;
+    height:620px;
 }
+
+.div-esquerda p {
+    margin-left: 115px;
+}
+
+#respostas {
+    background-color: #363636;
+    color: white;
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 400px;
+    height: 180px;
+    border-radius:10px;
+    text-align: center;
+    font-size: 16px;
+    /* display: none; */
+}
+
 .div-direita{
     background-color:#363636;
     margin-left: 55%;
     width: 390px;
-    height:600px;
+    height:620px;
     border-left: #66CDAA solid 12px;
 }
-.conecte-se{
+.simulador{
     color:#66CDAA; 
     font-size: 50px;
     margin-left:25%;
+    margin-top: -50px;
     padding-top: 10%;
+    
 }
 
+.simulador p {
+    font-weight: bold;
+}
+
+.logo-direita{
+    position:absolute;
+    width: 70px;
+    margin-left: 21%;
+    margin-top: -110px;
+}
 
 .inputs{
     width:200px;
@@ -52,7 +82,11 @@ body{
     margin-top:1%;
     cursor:pointer;
 }
-
+.logo-home:hover{
+    transition:1s; 
+    /* transition é o tempo que o elemento vai demorar pra mudar quando o mouse passar em cima */
+    width:55px;
+}
 .button-entrar{
     color:#66CDAA;
     background-color: #363636;
@@ -90,10 +124,21 @@ body{
     border-color: transparent;
     outline: none;
 }
-
+/*  */
 .cyberlife-direita{
-    font-size: 50px;
-    margin-left:22%;
-    padding-top: 35%;
+    font-size: 55px;
+    margin-left:13%;
+    padding-top: 25%;
 
 }
+
+.como-funciona{
+    text-align: center;
+    background-color:white;
+    font-size: 18.2px;
+    height:370px;
+    width:340px;
+    margin-left:7%;
+    border-radius: 10px;
+    
+} 
