@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/config-orgaos.css">
+    <script src="https://kit.fontawesome.com/f7c75dba64.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Configuração de orgãos</title>
+</head>
+
+<body>
+    <div class="div-esquerda">
+        <img class="logo-home" src="img/homebranco.png">
+        <h1 class="configurar"> Configurar </h1>
+        <div class="inputs">
+            <span style="color:white;">Inserir órgão</span>
+            <input type="text" id="orgao" placeholder="Ex: coração" class="input-orgao">
+            <br><br>
+            <!--type = password faz o campo ficar com asterisco ao invés de caracter escrito-->
+            <span style="color:white;">Inserir a temperatura ideal</span>
+            <input type="text" id="temperatura" placeholder="Ex: 4" class="input-temperatura">
+            <br><br>
+            <span style="color:white">Adicionar funcionário</span>
+            <input type="text" id="orgao" placeholder="Ex: nome, permissão(0 usuário ou 1 admin)" class="input-permissoes">
+            <br><br>
+            <button class="button-entrar" onclick="confirmar()"><b>Confirmar</b></button>
+        </div>
+    </div>
+
+    <div class="div-direita">
+        <h1 style="color:black" class="cyberlife-direita">Cyber<span style="color:#66CDAA">life</span></h1>
+        <img src="img/logobranco.png" style="width: 210px; margin-left: 22%;">
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function confirmar() {
+            alert("Dados atualizados")
+        }
+</script>

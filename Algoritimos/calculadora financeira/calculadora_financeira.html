@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora financeira</title>
+</head>
+<body>
+
+    <h2>Funcionamento das Taxas</h2>
+    O cliente precisará alugar uma caixa térmica da nossa empresa com a solução ja instalada <br>
+    E depois colocar o órgão necessário dentro da caixa e enviar para o transporte. <br>
+    O aluguel dessa caixa custará <b>R$1000,00</b> por mês.
+
+    <h2>taxa do site para monitoramento de temperatura</h2>
+    A taxa de uso do nosso site de monitoramento, armazenamento e consulta de dados será de <b>R$2500,00</b> 
+    reais mensais.
+    <br><br>
+
+    <h3>Quantidade de caixas</h3>
+    Caso o número de caixas seja maior que 10, você terá <b>5%</b> de desconto na compra final.
+    <br><br>
+    Insira quantas caixas térmicas você gostaria de alugar: <br>
+    <input id="qtd_caixas" type="text">
+    <br><br>
+    <button onclick="calculo()">Calcular</button>
+    <div id="mensagem"></div>
+    <div id="mensagem2"></div>
+</body>
+</html>
+<script>
+var conta;
+        var desconto;
+        var contaT;
+        var total;
+    function calculo() {
+
+        if (qtd_caixas.value > 10) {
+
+            conta = qtd_caixas.value * 1000;
+            desconto = conta * 0.05;
+            contaT = conta - desconto;
+            total = contaT + 2500;
+
+            mensagem.innerHTML = `<br>Adicionando mais ${qtd_caixas.value} caixas no seu pedido mais os 5% do
+            desconto o valor total será de <b>R$${contaT.toFixed(2)}</b>`
+
+            mensagem2.innerHTML = `<br>somando o total do pedido ficará: R$2500,00 do uso do nosso site mais 
+            R$${contaT.toFixed(2)} da quantidade de caixas solicitadas.
+            <br>totalizando <b>R$${total.toFixed(2)}</b> reais mensais.`
+
+        } else {
+
+            conta = qtd_caixas.value * 1000;
+            total = conta + 2500;
+
+            mensagem.innerHTML = `<br>Adicionando mais ${qtd_caixas.value} caixas no seu pedido o valor total 
+            será de <b>R$${conta.toFixed(2)}</b>`
+
+            mensagem2.innerHTML = `<br>somando o total do pedido ficará: R$2500,00 do uso do nosso site mais 
+            R$${conta.toFixed(2)} da quantidade de caixas solicitadas.
+            <br>totalizando <b>R$${total.toFixed(2)}</b> mensais.`
+        }
+    }
+</script>

@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #21b0a8;
+    
+  }
+  
+  .container{
+
+    width: 80%; 
+    margin: auto;
+    height: 50px;
+  }
+  
+  .btn-orange{
+    background-color: #21b0a8;
+    color: #ffffff;
+    border: none;
+    width: 60px;
+    height: 25px;
+  }
+  
+  .header{
+    background-color: #363636;
+    height: 80px;
+    padding-top: 30px;
+    border-bottom: #21b0a8 solid 5px;
+  }
+  
+  .header .nav .home, 
+  .header span{
+  
+    color: #21b0a8;
+  }
+  .header .nav .home, 
+  .header {
+    color: white;
+  }
+  
+  .title-header h1,
+  .nav ul
+  {
+    margin: -5px;
+  }
+  
+  .title-header{
+    float: left;
+    color: #ffffff;
+    font-size: 24px;
+    
+  }
+  
+  .nav{
+    float: right;
+    margin-top: 10px;
+  }
+  
+  .nav a{
+    text-decoration: none;
+    color: #21b0a8;
+  }
+  
+  .nav li{
+    display: inline-block;
+    padding: 20px;
+    padding: 10px 20px 0 20px;
+  }
+
+  .box{
+    width: 55%; 
+    margin: auto;
+    height: auto;
+padding-bottom: 56px;
+  }
+
+.cadastro h1{
+    color: white;
+    font-size: 50px;
+}
+
+.cadastro input{
+    height: 20px;
+    width: 270px;
+}
+
+.btn_cadastro{
+    margin-left: 30px;
+    height: 30px;
+    width: 150px;
+    background-color: #21b0a8;
+    color: white;
+    text-align: center;
+}
+
+.pt1{
+    margin-left: 30px;
+}
+
+.INome input{
+    margin-left: 30px;
+    width: 300px;
+}
+
+.Sob{
+    margin-left: 351px;
+}
+
+.ISob input{
+    width: 272px;
+    margin-left: 90px;
+}
+
+.CID{
+    margin-left: 204px;
+}
+
+.ICID{
+    margin-left: 46px;
+}
+
+.senha{
+    margin-left: 335px;
+}
+
+.Isenha{
+    margin-left: 122px;
+}
+.CEP{
+    margin-left: 246px;
+}
+
+.ICEP input{
+    width: 87px;
+    margin-left: 24px;
+}
+
+.CE{
+    margin-left: 351px;
+}
+
+.ICE{
+    margin-left: 123px;
+}
+
+.div_endereco input{
+    width: 223px;
+    margin-left: 30px;
+}
+
+.showcase{
+    background-image: url(../img/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: auto;
+    border-bottom: #21b0a8 solid 5px;
+    padding-top: 30px;
+
+  }
+
+  .footer {
+    background-color:#363636 ;
+    overflow: auto;
+    
+  }
+  .footer {
+    text-align: center;
+    margin: 0px;
+    padding: 20px;
+   
+  }
+
+  

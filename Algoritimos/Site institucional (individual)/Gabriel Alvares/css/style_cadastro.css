@@ -1,0 +1,151 @@
+body{
+    background-color: #8B9EB7;
+    margin-right: 0%; 
+    margin-top: 0%; 
+    margin-bottom: 0%; 
+    margin-left: 0%;
+}
+.cadastro h1{
+    color: white;
+    font-size: 50px;
+}
+
+.cadastro input{
+    height: 20px;
+    width: 270px;
+}
+
+.btn_cadastro{
+    margin-left: 30px;
+    height: 30px;
+    width: 150px;
+    background-color: #001D4A;
+    color: white;
+    text-align: center;
+}
+
+.pt1{
+    margin-left: 30px;
+}
+
+.INome input{
+    margin-left: 30px;
+    width: 300px;
+}
+
+.Sob{
+    margin-left: 354px;
+}
+
+.ISob input{
+    width: 272px;
+    margin-left: 90px;
+}
+
+.CID{
+    margin-left: 215px;
+}
+
+.ICID{
+    margin-left: 46px;
+}
+
+.senha{
+    margin-left: 340px;
+}
+
+.Isenha{
+    margin-left: 122px;
+}
+.CEP{
+    margin-left: 250px;
+}
+
+.ICEP input{
+    width: 87px;
+    margin-left: 24px;
+}
+
+.CE{
+    margin-left: 353px;
+}
+
+.ICE{
+    margin-left: 123px;
+}
+
+.div_endereco input{
+    width: 223px;
+    margin-left: 30px;
+}
+
+.contato{
+    width: 100%;
+    height: 132px;
+    margin: auto;
+    margin-top: 90px;
+    background-color: #001D4A;
+}
+
+.contato h0{
+    font-size: 25px;
+}
+
+.logo2{
+    width: 80px;
+    height: 80px;   
+}
+
+.titulo_logo2{
+    margin-top: -10px;
+}
+
+.rodape1{
+    padding-top: 17px;
+    margin-left: 50px;
+}
+
+.rodape2{
+    margin-top: -117px;
+    margin-right: 52px;
+    float: right;
+}
+
+.texto_rodape{
+    padding: 5px 5px -800px 0;
+}
+
+.texto_rodape a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    float: right;
+    margin-top: -83px;
+    margin-right: 899px;
+}
+
+.email{
+    color: white;
+    float: right;
+    margin-top: -110px;
+    margin-right: 538px;
+}
+
+.email li{
+    list-style-type: none;
+    font-size: 23px;
+}
+
+.redes{
+    color: white;
+    float: right;
+    margin-top: -110px;
+    margin-right: 280px;
+}
+
+.redes li{
+    list-style-type: none;
+    font-size: 23px;
+}
