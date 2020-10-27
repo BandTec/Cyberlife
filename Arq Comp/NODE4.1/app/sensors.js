@@ -51,6 +51,7 @@ function dht11(options){
     minHumidity = typeof minHumidity == 'undefined' ? 20 : minHumidity;
     maxHumidity = typeof maxHumidity == 'undefined' ? 80 : maxHumidity;
 
+
     let randomHumidity = Math.floor(Math.random()*(maxHumidity-minHumidity+1)+minHumidity);
     
     let randomTemperature = Math.random() * (maxTemperature - minTemperature) + minTemperature;
