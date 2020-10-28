@@ -136,8 +136,9 @@ margin:-80px 0px 0px 200px;
   color: #363636;
 }
 
-.combo {
-  margin: 25px 100px;
+
+.caixa{
+  margin: 5px 100px;
   float: left;
   background-color: #66CDAA;
   border-radius: 10px;
@@ -145,6 +146,33 @@ margin:-80px 0px 0px 200px;
   height:30px;
   font-size: 18px;
   outline: none;
+}
+
+.caixa-p{
+  margin-left: 100px;
+}
+
+.combo {
+  margin-top: 55px;
+  float: left;
+  background-color: #66CDAA;
+  border-radius: 10px;
+  width:150px;
+  height:30px;
+  font-size: 18px;
+  outline: none;
+  margin-left: -250px;
+}
+
+.combo-p {
+  position: absolute;
+  margin-top: 35px;
+  margin-left: 100px;
+}
+
+.combo-select {
+  color: #ffffff;
+  font-weight: bold;
 }
 
 
@@ -178,8 +206,9 @@ margin:-80px 0px 0px 200px;
   font-weight: bold;
 }
 .inicio .inicio-trajeto {
- position: absolute;
- color: white;
+  margin-top: 25px;
+  position: absolute;
+  color: white;
 
 }
 
@@ -193,8 +222,7 @@ margin:-80px 0px 0px 200px;
   font-weight: bold;
   font-size: 15px;
   text-align: center;
-  margin-top: 20px;
-  margin-left: -250px;
+  margin-top: 45px;
 }
 ::-webkit-input-placeholder {
   color:rgba(54, 54, 54, 0.5);

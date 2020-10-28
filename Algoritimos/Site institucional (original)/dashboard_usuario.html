@@ -36,13 +36,22 @@
         <div class="painel-dashboard">
             <div class="container">
                 <div class="box-orgaos">
-
-                    <select class="combo" id="combo_orgao" onchange="orgaos()">
-                        <option value="selecionar">-Selecione-</option>
-                        <option value="coracao">Coração</option>
-                        <option value="rim">Rim</option>
-                        <option value="cornea">Córnea</option>
-                    </select>
+                    <div class="combo-select">
+                        <p class="caixa-p">Selecione a caixa:</p>
+                        <select class="caixa" id="combo_caixa" onchange="caixa">
+                            <option value="selecione">-Selecione-</option>
+                            <option value="1">Caixa 1</option>
+                            <option value="2">Caixa 2</option>
+                            <option value="3">Caixa 3</option>
+                        </select>
+                        <p class="combo-p">Selecione o orgão:</p>
+                        <select class="combo" id="combo_orgao" onchange="orgaos()">
+                            <option value="selecionar">-Selecione-</option>
+                            <option value="coracao">Coração</option>
+                            <option value="rim">Rim</option>
+                            <option value="cornea">Córnea</option>
+                        </select>
+                    </div>
                     <div class="inicio">
                         <p class="inicio-trajeto">Inicio do trajeto: </p>
                         <input type="datetime" placeholder="Ex: 18:00">
@@ -51,15 +60,15 @@
                             <p>Temperatura a X °C</p>
                             <p>Temperatura ideal: Y °C</p>
                         </div>
-                        <button class="confirmar" >Iniciar</button>
+                        <button class="confirmar">Iniciar</button>
                     </div>
 
                     <div class="fim">
                         <p>Fim do trajeto:</p>
                         <input type="datetime" placeholder="Ex: 20:00">
-                        <button class="confirmar" >Finalizar</button>
+                        <button class="confirmar">Finalizar</button>
                     </div>
-                    
+
                 </div>
             </div>
 
