@@ -24,7 +24,14 @@
             <input type="text" id="temperatura" placeholder="Ex: 4" class="input-temperatura">
             <br><br>
             <span style="color:white">Adicionar funcionário</span>
-            <input type="text" id="orgao" placeholder="Ex: nome, permissão(0 usuário ou 1 admin)" class="input-permissoes">
+            <input type="text" id="funcionario" placeholder="Ex: Jaime" class="input-permissoes">
+            <br><br>
+            <span style="color:white">Adicionar permissões</span>
+            <select class="input-orgao" name="" id="combo_admin">
+                <option value="selecionar">Usuario Administrador?</option>
+                <option value="1">Sim</option>
+                <option value="0">Não</option>
+            </select>
             <br><br>
             <button class="button-entrar" onclick="confirmar()"><b>Confirmar</b></button>
         </div>
@@ -41,6 +48,12 @@
 
 <script>
     function confirmar() {
-            alert("Dados atualizados")
-        }
+        alert("Dados atualizados")
+
+        temperatura.value = "";
+        orgao.value = "";
+        funcionario.value = "";
+        combo_admin.value = "selecionar";
+
+    }
 </script>
