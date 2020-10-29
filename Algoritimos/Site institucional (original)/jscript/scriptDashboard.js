@@ -57,3 +57,7 @@
             alert("Escolha o órgão que será transportado")
         }
     }
+
+    function iniciar() {
+        finalizar.style = "display:block";
+    }
