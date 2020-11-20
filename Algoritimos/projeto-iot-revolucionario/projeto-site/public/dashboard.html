@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <!-- FONTE -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+    <link rel="SHORTCUT ICON" href="img/healthcare.png">
+</head>
+
+<body>
+
+    <div class="header" id="headersite">
+        <div class="container">
+            <div class="title-header">
+                <h1>
+                    <z>Cyber</z><span>life</span>
+                </h1>
+
+                <img src="img/healthcare.png" class="icone">
+            </div>
+            <div class="nav" id="home">
+                <ul>
+                    <li> <a class="home1" href="index_logado.html"> <b>Home</b></a> </li>
+                    <li> <a class="dashboard1" href="dashboard.html"> <b>Dashboard</b> </a> </li>
+                    <li> <b>Admin</b></li>
+                </ul>
+                <a href="config-orgaos.html"> <img class="engrenagem" src="img/engrenagem.png" alt=""> </a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="painel-dashboard">
+            <div class="container">
+                <div class="box-orgaos">
+                    <div class="combo-select">
+                        <p class="caixa-p">Selecione a caixa:</p>
+                        <select class="caixa" id="combo_caixa" onchange="caixa">
+                            <option value="selecione">-Selecione-</option>
+                            <option value="1">Caixa 1</option>
+                            <option value="2">Caixa 2</option>
+                            <option value="3">Caixa 3</option>
+                        </select>
+                        <p class="combo-p">Selecione o orgão:</p>
+                        <select class="combo" id="combo_orgao" onchange="orgaos()">
+                            <option value="selecionar">-Selecione-</option>
+                            <option value="coracao">Coração</option>
+                            <option value="rim">Rim</option>
+                            <option value="cornea">Córnea</option>
+                        </select>
+                    </div> <br>
+                    <div class="inicio">
+                        <p class="inicio-trajeto">Inicio do trajeto: </p>
+                        <input type="datetime" placeholder="Ex: 18:00">
+                        <div class="status">
+                            <h3>ALERTA</h3>
+                            <p>Temperatura a X °C</p>
+                            <p>Temperatura ideal: Y °C</p>
+                        </div>
+                        <button class="confirmar" onclick=iniciar()>Iniciar</button>
+                    </div>
+
+                    <div class="fim" id="finalizar">
+                        <p>Fim do trajeto:</p>
+                        <input type="datetime" placeholder="Ex: 20:00">
+                        <button class="confirmar">Finalizar</button>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="grafico">
+                <div class="container">
+                    <h3>GRÁFICO</h3>
+                    <img src="img/grafico.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <footer class="rodape">
+            <h3>CYBER<span>LIFE</span> &COPY; 2020</h3>
+        </footer>
+    </div>
+
+</body>
+
+</html>
