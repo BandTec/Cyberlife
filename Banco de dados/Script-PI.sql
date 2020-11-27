@@ -58,6 +58,7 @@ select * from orgao;
 create table Usuario (
 	idUser int primary key auto_increment,
     nome varchar(60),
+    login varchar(45),
     administrador tinyint check (administrador = 0 OR administrador =1),
     email varchar(50),
     senha varchar(50),
@@ -80,6 +81,7 @@ create table Rota (
     fim datetime,
     fkCaixa int,
     fkOrgao int,
+    nomeTransportador varchar(45),
     foreign key (fkCaixa) references caixa (idCaixa),
     foreign key (fkOrgao) references Orgao (idOrgao)
 )auto_increment = 3000;
