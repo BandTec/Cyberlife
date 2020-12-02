@@ -1,3 +1,0 @@
-email: matheus.barbosa@bandtec.com.br
-senha: #Gfgrupo9
-dominio: cyberlifehelp
