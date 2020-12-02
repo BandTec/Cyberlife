@@ -1,0 +1,408 @@
+/* GLOBAL */
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #66CDAA;
+  
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container{
+  width: 80%; 
+  margin: auto;
+  height: 50px;
+}
+
+/* Content e sticky são para fixar o header (Jorge e Bruno)  */
+.content {
+  padding: 0;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+/* FIM GLOBAL */
+
+/* HEADER & NAV */
+
+.header{
+  background-color: #363636;
+  height: 80px;
+  padding-top: 30px;
+  border-bottom: #66CDAA solid 5px;
+}
+
+.header .nav .home, 
+.header span{
+
+  color: #66CDAA;
+}
+.header .nav .home, 
+.header z{
+  color: white;
+}
+
+.header .nav  img {
+  width: 25px;
+  margin-top: -17px;
+  margin-left: 685px;
+  position: absolute;
+}
+
+.title-header h1,
+.nav ul
+{
+  margin: -5px;
+}
+
+.nav .quem-somos1 :hover {
+  transition: 0.5s;
+  color: #ffffff;
+}
+
+.nav .home1 :hover{
+  transition: 0.5s;
+  color: #ffffff;
+}
+.nav .como-funciona1 :hover {
+  transition: 0.5s;
+  color: #ffffff;
+}
+
+
+
+.nav .contato1 :hover {
+  transition: 0.5s;
+  color: #ffffff;
+}
+.nav .Login1 :hover {
+  transition: 0.5s;
+  color: #ffffff;
+}
+
+.nav .dashboard1 :hover {
+  transition: 0.5s;
+  color: #ffffff;
+}
+
+.nav .usuario1 :hover {
+  transition: 0.5s;
+  color: #ffffff;
+}
+
+.title-header{
+  float: left;
+  color: #ffffff;
+  font-size: 23px;
+  
+}
+
+.title-header .icone {
+width: 80px;
+margin:-80px 0px 0px 200px;
+}
+
+.nav{
+  float: right;
+  margin-top: 10px;
+}
+
+.nav a{
+  text-decoration: none;
+  color: #66CDAA;
+}
+
+.nav li{
+  display: inline-block;
+  padding: 20px;
+  padding: 10px 20px 0 20px;
+}
+
+/* FIM HEADER & NAV */
+
+/* SHOWCASE */
+.showcase{
+  background-image: url(../img/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  min-height: 400px;
+  border-bottom: #66CDAA solid 5px;
+  padding-top: 30px;
+}
+.showcase z{
+  color: #66CDAA;
+}
+
+.showcase h1{
+  margin: 0;  
+  font-size: 55px;
+  padding-top: 70px;
+}
+
+/* FIM SHOWCASE */
+
+/* INICIO BOX */
+
+.box{
+  margin-left: 0;
+  overflow: auto;
+  /* border-bottom: #66CDAA solid 5px */
+}
+
+.box .box-item{
+text-align: center;
+width: 300px;
+float: left;
+margin: 40px 20px 0px 30px;
+color:#363636;
+}
+
+.box img{
+height: 100px;
+margin-left: 20px;
+}
+.box h3{
+  margin-left: 20px;
+}
+
+/* FIM BOX */
+
+#quem_somos {
+  height: 90px;
+}
+
+/* INICIO QUEM SOMOS */
+.quemsomos {
+  margin-left: 0;
+  margin-top: 40px;
+  overflow: auto;
+  overflow-y:hidden;    
+}
+.quemsomos h1{
+  color: #363636;
+  text-align: center;
+}
+.quemsomos z{
+  color: #66CDAA;
+}
+.quemsomos .foto-item {
+  text-align: center;
+  width: 240px; 
+  float: left;
+  margin: 30px 20px 30px 80px;  
+  color: #363636;
+  
+}
+
+.quemsomos img {
+  border-radius: 90px;
+}
+
+.box-sobre{ 
+ width: 700px;
+ height: 260px;
+ background-color: #363636;
+ background-size: cover;
+ text-align: center;
+ padding: 30px 30px 0px 30px;
+ margin-left: 305px;
+ margin-bottom: 30px;
+ margin-top: 30px;
+ border-radius: 20px;
+ color: white;
+ font-size: 26px;
+}
+
+#como_funciona {
+  height: 100px;
+}
+
+/* COMO FUNCIONA */
+
+.header-como {
+  height: 80px;
+  background-color: #363636;
+}
+
+.title-header h3 {
+  margin-left: 420px;
+  text-align: center;
+  align-items: center;
+  padding-top: 15px;
+  color: white;
+  font-size: 36px;
+}
+
+/* HLD */
+
+.hld {
+  background-color: #66CDAA;
+}
+
+.hld .imagem img {
+  height: 500px;
+  margin-left: 95px;
+  margin-top: 10px;
+  
+}
+
+.hld .como-funciona {
+  background-color:#363636 ;
+  margin-top: 500px;
+  border-bottom: #66CDAA solid 5px;
+}
+
+.hld .como-funciona h3 {
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  height: 231px;
+  width: 991px;
+  line-height: 36px;
+  margin-left: 180px;
+  padding-top: 48px;
+}
+/* FIM HLD */
+
+/* CONTATO */
+
+.contato {
+  background-color: white;
+  height: 450px;
+}
+
+.box-inicio-cont {
+  background-color: #66CDAA;
+  height: 350px;
+  width: 1070px;
+  border-radius: 10px;
+  margin-top: 10px;
+
+}    
+
+.box-contato {
+  background-color: #363636;
+  color: white;
+  width: 204px;
+  height: 66px;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.box-contato h3 {
+  padding-top: 13px;
+  text-align: center;
+  font-size: 35px;
+}
+
+.contato .box-dados {
+  background-color: #363636;
+  float: right;
+  height: 300px;
+  width: 600px;
+  margin-top: -60px;
+  margin-right: 40px;
+  border-radius: 10px;
+}
+
+.contato .box-dados input {
+  width: 500px;
+  align-items: center;
+  margin-left: 45px;
+  margin-top: 20px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  
+}
+
+.contato .box-dados ::placeholder {
+  font-family: 'Roboto', sans-serif; ;
+  color: rgba(54, 54, 54, 0.5);
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+.contato .box-dados button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 250px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.contato .contatar h3 , p {
+  padding-left: 30px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.contato .contatar h3 {
+  color: white;
+}
+
+.contato .contatar p {
+  color: #363636
+}
+
+/* FIM CONTATO */
+
+/* SIMULADOR FINANCEIRO */
+
+.div-calc {
+  margin-top:15px;
+}
+
+.div-calc p {
+  margin-top: -50px;
+  margin-left: 30px;
+}
+
+.calc-financeira-icone{
+  width:50px;  
+} 
+
+/* FIM SIMULDOR */
+/* FIM COMO FUNCIONA */
+
+/* RODAPE */
+
+.rodape {
+  
+  background-color: #363636;
+  height: 70px;
+  text-align: center;
+  color: white;
+}
+
+.rodape h3 {
+  padding-top: 25px;
+}
+
+.rodape span {
+  color: #66CDAA;
+  
+}
+
+/* FIM RODAPE */
+
