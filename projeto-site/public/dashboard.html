@@ -32,60 +32,188 @@
             </div>
         </div>
     </div>
-    <div class="content">
-        <div class="painel-dashboard">
-            <div class="container">
-                <div class="box-orgaos">
-                    <div class="combo-select">
-                        <p class="caixa-p">Selecione a caixa:</p>
-                        <select class="caixa" id="combo_caixa" onchange="caixa">
-                            <option value="selecione">-Selecione-</option>
-                            <option value="1">Caixa 1</option>
-                            <option value="2">Caixa 2</option>
-                            <option value="3">Caixa 3</option>
-                        </select>
-                        <p class="combo-p">Selecione o orgão:</p>
-                        <select class="combo" id="combo_orgao" onchange="orgaos()">
-                            <option value="selecionar">-Selecione-</option>
-                            <option value="coracao">Coração</option>
-                            <option value="rim">Rim</option>
-                            <option value="cornea">Córnea</option>
-                        </select>
-                    </div> <br>
-                    <div class="inicio">
-                        <p class="inicio-trajeto">Inicio do trajeto: </p>
-                        <input type="datetime" placeholder="Ex: 18:00">
-                        <div class="status">
-                            <h3>ALERTA</h3>
-                            <p>Temperatura a X °C</p>
-                            <p>Temperatura ideal: Y °C</p>
-                        </div>
-                        <button class="confirmar" onclick=iniciar()>Iniciar</button>
-                    </div>
 
-                    <div class="fim" id="finalizar">
-                        <p>Fim do trajeto:</p>
-                        <input type="datetime" placeholder="Ex: 20:00">
-                        <button class="confirmar">Finalizar</button>
-                    </div>
-
+    <!-- painel -->
+    <div class="painel">
+        <!-- caixa iniciar -->
+        <div class="box-iniciar">
+            <div class="box-select">
+                <!-- box select da caixa -->
+                <div class="select-caixa">
+                    <select name="" id="">
+                        
+                    </select>
+                </div>
+                <!-- box select do orgao -->
+                <div class="select-orgao">
+                    <select name="" id="">
+                        <option value=""></option>
+                </select>
                 </div>
             </div>
 
 
-            <div class="grafico">
-                <div class="container">
-                    <h3>GRÁFICO</h3>
-                    <img src="img/grafico.png" alt="">
-                </div>
-            </div>
+
         </div>
+        <!-- caixa alerta -->
+        <div class="box-alerta">
 
-        <footer class="rodape">
-            <h3>CYBER<span>LIFE</span> &COPY; 2020</h3>
-        </footer>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <h3>CYBER<span>LIFE</span> &COPY; 2020</h3>
+    </footer>
     </div>
 
 </body>
 
 </html>
+<script>
+
+    let usuario;
+
+    verificar_autenticacao();
+
+    // só mexer se quiser alterar o tempo de atualização
+    // ou se souber o que está fazendo!
+    function atualizacaoPeriodica() {
+        obterdadosporcaminhao(1);
+        obterdadosporcaminhao(2);
+        obterdadosporcaminhao(3);
+        obterdadosporcaminhao(4);
+        setTimeout(atualizacaoPeriodica, 5000);
+    }
+
+
+
+    function obterdadosporcaminhao(idcaminhao) {
+        //aguardar();
+        fetch(`/leituras/tempo-real/${idcaminhao}`)
+            .then(resposta => {
+
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        // aqui, após registro. use os nomes 
+                        // dos atributos que vem no JSON 
+                        var dados = {
+                            temperatura: resposta.temperatura,
+                            umidade: resposta.umidade
+                        }
+
+                        alertar(resposta.temperatura, resposta.umidade, idcaminhao);
+                        atualizarTela(dados, idcaminhao);
+                    });
+                } else {
+
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados do caminhao p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function alertar(temperatura, umidade, idcaminhao) {
+        // padrão para meu alerta
+        var limites = {
+            max_temperatura: 40,
+            min_temperatura: 20,
+            max_umidade: 80,
+            min_umidade: 50,
+        };
+
+        // zerar aviso de mensagem
+        var mensagem_temperatura = '';
+        var mensagem_umidade = '';
+        var classe_temperatura = 'alerta';
+        var classe_umidade = 'alerta_umidd';
+
+        // comparando
+        if (temperatura > limites.max_temperatura) {
+            mensagem_temperatura += 'Temperatura alta demais! <br>';
+            classe_temperatura = 'alerta alerta-alto';
+        }
+        if (umidade > limites.max_umidade) {
+            mensagem_umidade += 'Umidade alta demais! <br>';
+            classe_umidade = 'alerta_umidd alerta-alto';
+        }
+        if (temperatura < limites.min_temperatura) {
+            mensagem_temperatura = 'Temperatura baixa demais! <br>';
+            classe_temperatura = 'alerta alerta-baixo';
+        }
+        if (umidade < limites.min_umidade) {
+            mensagem_umidade = 'Umidade baixa demais! <br>';
+            classe_umidade = 'alerta_umidd alerta-baixo';
+        }
+
+        // escolhendo qual alterar
+        var div_temperatura_alterar
+        var div_umidade_alterar
+
+        if (idcaminhao == 1) {
+            div_temperatura_alterar = div_alerta_temperatura
+            div_umidade_alterar = div_alerta_umidade
+        } else if (idcaminhao == 2) {
+            div_temperatura_alterar = div_alerta_temperatura2
+            div_umidade_alterar = div_alerta_umidade2
+        } else if (idcaminhao == 3) {
+            div_temperatura_alterar = div_alerta_temperatura3
+            div_umidade_alterar = div_alerta_umidade3
+        } else if (idcaminhao == 4) {
+            div_temperatura_alterar = div_alerta_temperatura4
+            div_umidade_alterar = div_alerta_umidade4
+        }
+
+        // alterando
+        div_temperatura_alterar.innerHTML = mensagem_temperatura;
+        div_temperatura_alterar.className = classe_temperatura;
+
+        div_umidade_alterar.innerHTML = mensagem_umidade;
+        div_umidade_alterar.className = classe_umidade;
+    }
+
+    // só altere aqui se souber o que está fazendo!
+    function atualizarTela(dados, idcaminhao) {
+        console.log('iniciando atualização da tela...');
+
+        // escolhendo qual alterar
+        var div_temperatura_alterar
+        var div_umidade_alterar
+
+        if (idcaminhao == 1) {
+            div_temperatura_alterar = div_temperatura
+            div_umidade_alterar = div_umidade
+        } else if (idcaminhao == 2) {
+            div_temperatura_alterar = div_temperatura2
+            div_umidade_alterar = div_umidade2
+        } else if (idcaminhao == 3) {
+            div_temperatura_alterar = div_temperatura3
+            div_umidade_alterar = div_umidade3
+        } else if (idcaminhao == 4) {
+            div_temperatura_alterar = div_temperatura4
+            div_umidade_alterar = div_umidade4
+        }
+
+        div_temperatura_alterar.innerHTML = `Temperatura: ${dados.temperatura}º`;
+
+        div_umidade_alterar.innerHTML = `Umidade: ${dados.umidade}%`;
+
+
+
+    }
+
+
+    function sendData() {
+        var http = new XMLHttpRequest();
+        http.open('GET', 'http://localhost:9000/api/sendData', false);
+        http.send(null);
+    }
+
+    setInterval(() => {
+        sendData();
+    }, 5000);
+</script>
