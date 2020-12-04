@@ -4,22 +4,21 @@ var sequelize = require('../models').sequelize;
 var Leitura = require('../models').Leitura;
 
 /* Recuperar as últimas N leituras */
-router.get('/ultimas/:idcaminhao', function(req, res, next) {
+router.get('/ultimas/:idcaixa', function(req, res, next) {
 	
 	// quantas são as últimas leituras que quer? 8 está bom?
 	const limite_linhas = 7;
 
-	var idcaminhao = req.params.idcaminhao;
+	var idcaixa = req.params.idcaixa;
 
 	console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
 	
 	const instrucaoSql = `select top ${limite_linhas} 
 						temperatura, 
-						umidade, 
 						momento,
 						FORMAT(momento,'HH:mm:ss') as momento_grafico
 						from leitura
-						where idcaminhao = ${idcaminhao}
+						where idcaixa = ${idcaixa}
 						order by id desc`;
 
 	sequelize.query(instrucaoSql, {
@@ -54,13 +53,13 @@ router.get('/ultimas/:idcaminhao', function(req, res, next) {
 });
 */
 
-router.get('/tempo-real/:idcaminhao', function(req, res, next) {
+router.get('/tempo-real/:idcaixa', function(req, res, next) {
 	console.log('Recuperando caminhões');
 
-	//var idcaminhao = req.body.idcaminhao; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var idcaminhao = req.params.idcaminhao;
+	//var idcaminhao = req.body.idcaixa; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var idcaminhao = req.params.idcaixa;
 
-	let instrucaoSql = `select top 1 temperatura, umidade, FORMAT(momento,'HH:mm:ss') as momento_grafico, idcaminhao from leitura where idcaminhao = ${idcaminhao} order by id desc`;
+	let instrucaoSql = `select top 1 temperatura, FORMAT(momento,'HH:mm:ss') as momento_grafico, idcaixa from leitura where idcaminhao = ${idcaminhao} order by id desc`;
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
@@ -81,9 +80,6 @@ router.get('/estatisticas', function (req, res, next) {
 							max(temperatura) as temp_maxima, 
 							min(temperatura) as temp_minima, 
 							avg(temperatura) as temp_media,
-							max(umidade) as umidade_maxima, 
-							min(umidade) as umidade_minima, 
-							avg(umidade) as umidade_media 
 						from leitura`;
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
