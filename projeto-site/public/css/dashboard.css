@@ -123,8 +123,8 @@ margin:-80px 0px 0px 200px;
 /* painel */
 
 .painel {
-  display: flex; 
-  border: red 5px solid;
+  display: flex;
+
   margin: auto;
   margin-top: 5%;
   width: 82%;
@@ -134,14 +134,13 @@ margin:-80px 0px 0px 200px;
 .painel .box-iniciar {
   display: flex;
   flex-direction: column;
-  border: blue 5px solid ;
+
   width: 50%;
 }
 
 .box-alerta {
   display: flex;
   flex-direction: column;
-  border: green 5px solid;
   width: 50%;
 }
 /* box select */
@@ -151,7 +150,6 @@ margin:-80px 0px 0px 200px;
   margin: auto;
   margin-top: 5%;
   margin-bottom: 0;
-  border: #66CDAA solid;
   width: 75%;
   height: 25%;
 }
@@ -168,7 +166,6 @@ margin:-80px 0px 0px 200px;
 .box-select .select-caixa {
   display: flex;
   flex-direction: column;
-  border: red solid;
   width: 45%;
   text-align: center;
   align-items: center;
@@ -182,7 +179,6 @@ margin:-80px 0px 0px 200px;
 
 /* select orgao */
 .box-select .select-orgao {
-  border: red solid;
   display: flex;
   flex-direction: column;
   width: 45%;
@@ -207,7 +203,6 @@ margin:-80px 0px 0px 200px;
   margin: auto;
   margin-top: 5%;
   margin-bottom: 0;
-  border: red solid;
   font-size: 28px;
 }
 
@@ -228,7 +223,13 @@ margin:-80px 0px 0px 200px;
   outline: 0;
   border: 0;
   background: #66CDAA;
-  
+  cursor: pointer;
+}
+
+.botao-iniciar button:hover{
+  transition: 0.2s;
+  color: #66CDAA;
+  background-color: #363636 ;
 }
 
 /* fim botao */
@@ -241,11 +242,12 @@ margin:-80px 0px 0px 200px;
 }
 
 .alerta {
+  text-align: center;
   margin: auto;
-  height: 50%;
+  height: 60%;
+  width: 300px;
   background: red;
   color: black;
-
 }
 
 /* alerta */
@@ -272,7 +274,7 @@ margin:-80px 0px 0px 200px;
   margin: auto;
 }
 .dashboard {
-  background-color: #ecf0f1;
+  /* background-color: #ecf0f1; */
   text-align: center;
   padding: 50px 0;
   width: 80%;
@@ -296,7 +298,7 @@ margin:-80px 0px 0px 200px;
   display: inline-block;
 }
 
-.dashboard .btn-green {
+.grafico-temp .btn-green {
   display: block;
   float: none;
   margin: auto;
@@ -318,7 +320,6 @@ margin:-80px 0px 0px 200px;
   margin: auto;
 }
 .caixa {
-  border: 1px solid red;
   border-radius: 10px;
   display: block;
   width: 35%;
@@ -326,20 +327,20 @@ margin:-80px 0px 0px 200px;
   height: 160px;
   float: left;
   text-align: center;
-
   background-color: white;
   box-shadow:  3px 3px 5px 2px #ccc;
   
 }
+
 
 .caixa .valores {
   margin:auto;
   overflow: auto;
 }
 
-.caixa .valores .valor {
+.caixa .valores .valor{
   margin-left: 13%;
-  width: 30%;
+
   float: left;
 }
 
@@ -361,8 +362,66 @@ margin:-80px 0px 0px 200px;
   float: right;
 }
 
-
-
-
-
 /* fim parte do bruno */
+
+/* div gráfico =) */
+
+.btn {
+  background-color: #363636;
+  border: none;
+  width:70px;
+  height: 30px;
+  border-radius: 20px;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-bottom: 30px;
+}
+
+.grafico-temp{
+  display: flex; 
+  flex-direction: column;
+  border: red 5px solid;
+  margin: auto;
+  margin-top: 5%;
+  width: 82%;
+  height: 100%;
+}
+
+.grafico-temp h2{
+  margin:auto;
+  margin-top: 1%;
+  font-size: 30px;
+}
+
+#canvas_grafico {
+  width: 800px;
+  height: 400px;
+  margin-bottom: 100px;
+}
+
+/* RODAPE */
+
+.rodape {
+  
+  background-color: #363636;
+  height: 70px;
+  text-align: center;
+  color: white;
+  position: fixed;
+  left: 0px;
+}
+
+.rodape h3 {
+  padding-top: 25px;
+}
+
+.rodape span {
+  color: #66CDAA;
+  
+}
+
+/* FIM RODAPE */
+

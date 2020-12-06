@@ -8,6 +8,15 @@
     <!-- FONTE -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Dashboard</title>
+    <!-- script do google charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+    <!-- scripts do Chart.js -->
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+    <script type="text/javascript" src="scriptDashboard.js"></script>
+    <!-- css -->
     <link rel="SHORTCUT ICON" href="img/healthcare.png">
 </head>
 
@@ -39,20 +48,20 @@
         <div class="box-iniciar">
             <div class="box-select">
                 <!-- box select da caixa -->
-                <div class="select-caixa" >
-                <b>Selecione a <span class="verde">caixa</span> </b>
+                <div class="select-caixa">
+                    <b>Selecione a <span class="verde">caixa</span> </b>
                     <select class="box-caixa" name="" id="">
                         <option value="0">-SELECIONE-</option>
                         <option value="1">Coração</option>
                     </select>
                 </div>
                 <!-- box select do orgao -->
-                <div class="select-orgao" >
+                <div class="select-orgao">
                     <b>Selecione o <span class="verde">órgão</span> </b>
                     <select name="" id="">
                         <option value="0">--SELECIONE--</option>
                         <option value="1">Coração</option>
-                </select>
+                    </select>
                 </div>
             </div>
             <!-- tempo -->
@@ -60,7 +69,7 @@
                 12:42
             </div>
             <!-- botao -->
-            <div class="botao-iniciar"> 
+            <div class="botao-iniciar">
                 <button>Iniciar</button>
             </div>
 
@@ -72,6 +81,67 @@
             </div>
         </div>
     </div>
+
+    <div class="grafico-temp">
+        <h2>Gráfico <span style="color: black;">de temperatura da caixa</span></h2>
+        <!-- gráficos -->
+        <div class="painel-graficos">
+            <div class="dashboard">
+                <button class="btn" onclick="chamargraficos(1)">Caixa 1</button>
+                <button class="btn" onclick="chamargraficos(2)">Caixa 2</button>
+                <button class="btn" onclick="chamargraficos(3)">Caixa 3</button>
+                <button class="btn" onclick="chamargraficos(4)">Caixa 4</button>
+                <div id="div_aguarde">Dados sendo obtidos...</div>
+                <canvas id="canvas_grafico"></canvas>
+                <h3>GRÁFICOS</h3>
+
+                <div class="caixa">
+                    <h4>Caixa <span name="numerocaixa" id="idcaixa" value="1">1</span></h4>
+                    <div class="valores">
+                        <div class="valor" id="div_temperatura">Temperatura sendo obtida...</div>
+                    </div>
+                    <div class="alertas">
+                        <div class="alerta" id="div_alerta_temperatura"> </div>
+                    </div>
+                </div>
+
+                <div class="caixa">
+                    <h4>Caixa <span name="numerocaixa" id="idcaixa" value="2">2</span></h4>
+                    <div class="valores">
+                        <div class="valor" id="div_temperatura2">Temperatura sendo obtida...</div>
+                    </div>
+
+                    <div class="alertas">
+                        <div class="alerta" id="div_alerta_temperatura2"></div>
+                    </div>
+                </div>
+                <div class="caixa">
+                    <h4>Caixa <span name="numerocaixa" id="idcaixa" value="3">3</span></h4>
+                    <div class="valores">
+                        <div class="valor" id="div_temperatura3">Temperatura sendo obtida...</div>
+                    </div>
+                    <div class="alertas">
+                        <div class="alerta" id="div_alerta_temperatura3"></div>
+                    </div>
+                </div>
+
+                <div class="caixa">
+                    <h4>Caixa <span name="numerocaixa" id="idcaixa" value="4">4</span></h4>
+                    <div class="valores">
+                        <div class="valor" id="div_temperatura4">Temperatura sendo obtida...</div>
+                    </div>
+
+                    <div class="alertas">
+                        <div class="alerta" id="div_alerta_temperatura4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <h3>CYBER<span>LIFE</span> &COPY; 2020</h3>
+    </footer>
 
 </body>
 
