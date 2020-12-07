@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylelogin.css">
+    <script src="https://kit.fontawesome.com/f7c75dba64.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+    <link rel="SHORTCUT ICON" href="img/healthcare.png">
+</head>
+
+<body>
+    <!-- Parte branca do site -->
+    <div class="div-esquerda">
+        <a href="index.html"><img src="img/home.png"
+                style="width:50px; margin-left:2%; margin-top:1%;cursor:pointer;"></a>
+        <h1 class="cadastro_style">Faça aqui seu cadastro!</h1>
+        <div class="formulario">
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <div class="inputs">
+                    Nome Empresa
+                    <input type="text" name="nome" class="input-email" autofocus="autofocus"
+                        placeholder="Nome Empresa" required minlength="4">
+
+                    Usuário
+                    <input type="text" name="nome" class="input-email" autofocus="autofocus"
+                        placeholder="Nome e sobrenome" required minlength="4">
+
+                    Login
+                    <input type="text" name="login" class="input-email" placeholder="seu nome de usuário" required
+                        minlength="4">
+
+                    Senha
+                    <input type="password" name="senha" class="input-email" placeholder="***************" required
+                        minlength="4">
+
+                    <br><br>
+                    <input type="submit" id="btn_entrar" value="Cadastrar" class="button-entrar">
+                </div>
+            </form>
+            <div class="extra">
+                <div id="div_erro" class="msg_erro">
+                </div>
+    
+                <img src="img/loading.gif" id="img_aguarde">
+    
+            </div>
+        </div>
+    </div>
+    <!-- parte preta do site -->
+    <div class="div-direita">
+        <h1 style="color:white" class="cyberlife-direita">Cyber<span style="color:#66CDAA">life</span></h1>
+        <img src="img/healthcare.png" style="width: 210px; margin-left: 22%;">
+    </div>
+
+</body>
+<script src="jscript/scriptLogin.js"></script>
+
+</html>
+
+<script>
+
+    function entrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+
+                    window.location.href = 'dashboard.html';
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.visibility = 'visible';
+        div_erro.style.visibility = 'hidden';
+    }
+
+    function finalizar_aguardar(resposta) {
+        btn_entrar.disabled = false;
+        img_aguarde.style.visibility = 'hidden';
+        div_erro.style.visibility = 'visible';
+        div_erro.innerHTML = resposta;
+    }
+
+</script>

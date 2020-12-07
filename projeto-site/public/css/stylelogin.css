@@ -23,6 +23,11 @@ body{
     margin-left:25%;
     padding-top: 10%;
 }
+.cadastro_style{
+    color:#66CDAA; 
+    font-size: 35px;
+   text-align: center;
+}
 
 
 .inputs{
@@ -57,7 +62,7 @@ body{
     color:#66CDAA;
     background-color: #363636;
     font-size: 16px;
-    margin-left: 45%;
+    margin-left: 40%;
     height: 45px;
     width: 100px;
     border-radius: 50px;
@@ -96,4 +101,14 @@ body{
     margin-left:22%;
     padding-top: 35%;
 
+}
+
+.extra {
+    text-align: center;
+}
+
+#img_aguarde {
+    margin-top: 5%;
+    height: 55px;
+    visibility: hidden;
 }

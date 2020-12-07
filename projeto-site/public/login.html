@@ -19,20 +19,18 @@
         <br>
         <form id="form_login" method="post" onsubmit="return entrar()">
             <div class="inputs">
-                <input type="text" id="login" name="login" placeholder="Email ou ID" class="input-email">
+                <input type="text" id="login" name="login" placeholder="Email ou ID" class="input-email" required>
                 <br><br><br>
-                <input type="password" id="senha" name="senha" placeholder="Senha" class="input-senha">
-                <br>
-                <u class="esqueceu-senha" onclick="esqueceu()"><b>Esqueceu a senha?</b></u>
+                <input type="password" id="senha" name="senha" placeholder="Senha" class="input-senha" required>
                 <br><br>
-                <button class="button-entrar" onclick="entrar()"><b>Entrar</b></button>
             </div>
         </form>
+        <button class="button-entrar" onclick="entrar()" id="btn_entrar"><b>Entrar</b></button>
         <div class="extra">
             <div id="div_erro" class="msg_erro">
             </div>
 
-            <img src="img/carregando.gif" id="img_aguarde">
+            <img src="img/loading.gif" id="img_aguarde">
 
         </div>
     </div>
@@ -64,7 +62,7 @@
                     sessionStorage.login_usuario_meuapp = json.login;
                     sessionStorage.nome_usuario_meuapp = json.nome;
 
-                    window.location.href = 'sobre.html';
+                    window.location.href = 'dashboard.html';
                 });
 
             } else {

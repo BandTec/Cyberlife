@@ -156,10 +156,12 @@ margin:-80px 0px 0px 200px;
 
 .box-select select {
   margin-top: 5%;
-  background: #66CDAA;
+  background: white;
   width: 75%;
   height: 35px;
-  border-radius: 20px;
+  border-radius: 10px;
+  color:#363636;
+  
 }
 /* select caixa */
 
@@ -169,7 +171,8 @@ margin:-80px 0px 0px 200px;
   width: 45%;
   text-align: center;
   align-items: center;
-  color: black;
+  color: #363636;
+  font-size: 20px;
 }
 
 .box-select .select-caixa span {
@@ -185,7 +188,8 @@ margin:-80px 0px 0px 200px;
   margin-left: 30.5%;
   text-align: center;
   align-items: center;
-  color: black;
+  color: #363636;
+  font-size: 20px
 }
 
 .box-select .select-orgao span {
@@ -197,6 +201,12 @@ margin:-80px 0px 0px 200px;
 
 /* tempo */
 
+.box-iniciar {
+  border: #363636 5px solid;
+  border-radius: 10px;
+  background-color: #e3e3e3;
+}
+
 .box-iniciar .tempo {
   display: flex;
   flex-direction: row;
@@ -206,6 +216,12 @@ margin:-80px 0px 0px 200px;
   font-size: 28px;
 }
 
+.tempo b{
+font-size:18px;
+margin-left: 20px;
+color: #363636;
+margin-left: 15px;
+}
 /* fim tempo */
 
 /* botao */
@@ -223,6 +239,7 @@ margin:-80px 0px 0px 200px;
   outline: 0;
   border: 0;
   background: #66CDAA;
+  color: #363636;
   cursor: pointer;
 }
 
@@ -242,6 +259,7 @@ margin:-80px 0px 0px 200px;
 }
 
 .alerta {
+  border-radius: 20px;
   text-align: center;
   margin: auto;
   height: 60%;
@@ -293,6 +311,12 @@ margin:-80px 0px 0px 200px;
   margin-bottom: 40px;
 }
 
+.dashboard h3 {
+  font-size: 30px;
+  color: #363636;
+  margin-bottom: 20px;
+}
+
 .dashboard .input-padrao {
   width: 50%;
   display: inline-block;
@@ -330,6 +354,10 @@ margin:-80px 0px 0px 200px;
   background-color: white;
   box-shadow:  3px 3px 5px 2px #ccc;
   
+}
+
+.caixa h4 {
+  color: #363636;
 }
 
 
@@ -378,22 +406,34 @@ margin:-80px 0px 0px 200px;
   cursor: pointer;
   margin-left: 15px;
   margin-bottom: 30px;
+  outline-style: none;
+}
+
+.btn:hover{
+  transition: 0.4s;
+  color: #363636;
+  background-color: #66CDAA;
 }
 
 .grafico-temp{
+  background-color: #e3e3e3;
   display: flex; 
   flex-direction: column;
-  border: red 5px solid;
+  border: #363636 5px solid;
   margin: auto;
   margin-top: 5%;
   width: 82%;
   height: 100%;
 }
 
+#div_aguarde {
+  font-size: 20px;
+}
+
 .grafico-temp h2{
   margin:auto;
   margin-top: 1%;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 #canvas_grafico {

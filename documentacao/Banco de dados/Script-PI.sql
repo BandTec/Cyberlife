@@ -14,7 +14,7 @@ create table empresa (
 	CEP CHAR(9),
 	Uf CHAR(2),
 	cidade VARCHAR(45) 
-)auto_increment= 50;
+)auto_increment= 1000;
 
 insert into empresa values 
 	(null,'Albert Einstein', '12.345.678/0002-88', '(11) 99999-1111', 'albert.eistein@contato.com.br','Av. Albert Einstein', 627, 'Jardim Leonor', '05652-900', 'SP', 'São Paulo');

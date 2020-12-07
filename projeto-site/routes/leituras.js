@@ -9,7 +9,7 @@ router.get('/ultimas/:idcaixa', function(req, res, next) {
 	// quantas são as últimas leituras que quer? 8 está bom?
 	const limite_linhas = 7;
 
-	var idcaixa = req.params.idcaixa;
+	var idcaminhao = req.params.idcaixa;
 
 	console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
 	
@@ -18,7 +18,7 @@ router.get('/ultimas/:idcaixa', function(req, res, next) {
 						momento,
 						FORMAT(momento,'HH:mm:ss') as momento_grafico
 						from leitura
-						where idcaixa = ${idcaixa}
+						where idcaixa = ${idcaminhao}
 						order by id desc`;
 
 	sequelize.query(instrucaoSql, {
@@ -59,7 +59,7 @@ router.get('/tempo-real/:idcaixa', function(req, res, next) {
 	//var idcaminhao = req.body.idcaixa; // depois de .body, use o nome (name) do campo em seu formulário de login
 	var idcaminhao = req.params.idcaixa;
 
-	let instrucaoSql = `select top 1 temperatura, FORMAT(momento,'HH:mm:ss') as momento_grafico, idcaixa from leitura where idcaminhao = ${idcaminhao} order by id desc`;
+	let instrucaoSql = `select top 1 temperatura, FORMAT(momento,'HH:mm:ss') as momento_grafico, idcaixa from leitura where idcaixa = ${idcaminhao} order by id desc`;
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
@@ -79,7 +79,7 @@ router.get('/estatisticas', function (req, res, next) {
 	const instrucaoSql = `select 
 							max(temperatura) as temp_maxima, 
 							min(temperatura) as temp_minima, 
-							avg(temperatura) as temp_media,
+							avg(temperatura) as temp_media
 						from leitura`;
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })

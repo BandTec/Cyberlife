@@ -1,8 +1,8 @@
 var configuracoes = {
-    server: "SEU_BANCO_DE_DADOS.database.windows.net",
-    user: "SEU_USUARIO",
-    password: "SUA_SENHA",
-    database: "SEU_BANCO_DE_DADOS",
+    server: "bd-grupo9.database.windows.net",
+    user: "cyberlife",
+    password: "#Gfgrupo9",
+    database: "bd-grupo9",
     options: {
       encrypt: true,
       enableArithAbort: true,
