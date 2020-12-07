@@ -217,10 +217,17 @@ margin:-80px 0px 0px 200px;
 }
 
 .tempo b{
-font-size:18px;
+font-size:25px;
 margin-left: 20px;
 color: #363636;
-margin-left: 15px;
+
+}
+
+.x {
+  border-radius: 5px;
+  border: none;
+  margin-left: 10px;
+  height: 30px;
 }
 /* fim tempo */
 
@@ -284,8 +291,6 @@ margin-left: 15px;
 
 /* fim painel */
 
-
-/* Parte do Bruno */
 
 .containerdash { 
   width: 80%;
@@ -390,8 +395,6 @@ margin-left: 15px;
   float: right;
 }
 
-/* fim parte do bruno */
-
 /* div gráfico =) */
 
 .btn {
@@ -420,6 +423,7 @@ margin-left: 15px;
   display: flex; 
   flex-direction: column;
   border: #363636 5px solid;
+  border-radius: 5px;
   margin: auto;
   margin-top: 5%;
   width: 82%;

@@ -72,13 +72,14 @@ let proximaAtualizacao;
 window.onload = obterDadosGraficoPrimeiraVez(1);
 
 
-function chamargraficos(idcaixa) {
+function chamargraficos(idcaminhao) {
 
-    obterDadosGraficoPrimeiraVez(idcaixa)
+    obterDadosGraficoPrimeiraVez(idcaminhao)
     //atualizarGrafico(idcaminhao)
 
 }
 
+verificar_autenticacao();
 
 // neste JSON tem que ser 'labels', 'datasets' etc, 
 // porque é o padrão do Chart.js
@@ -122,13 +123,13 @@ function configurarGrafico() {
 
 // altere aqui como os dados serão exibidos
 // e como são recuperados do BackEnd
-function obterDadosGraficoPrimeiraVez(idcaixa) {
+function obterDadosGraficoPrimeiraVez(idcaminhao) {
 
     if (proximaAtualizacao != undefined) {
         clearTimeout(proximaAtualizacao);
     }
 
-    fetch(`/leituras/ultimas/${idcaixa}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/leituras/ultimas/${idcaminhao}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -156,7 +157,7 @@ function obterDadosGraficoPrimeiraVez(idcaixa) {
                 }
                 console.log(JSON.stringify(dados));
                 div_aguarde.style.display = 'none';
-                plotarGrafico(dados, idcaixa);
+                plotarGrafico(dados, idcaminhao);
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -172,10 +173,10 @@ function obterDadosGraficoPrimeiraVez(idcaixa) {
 
 // só mexer se quiser alterar o tempo de atualização
 // ou se souber o que está fazendo!
-function atualizarGrafico(idcaixa, dados) {
+function atualizarGrafico(idcaminhao, dados) {
 
-    fetch(`/leituras/tempo-real/${idcaixa}`, { cache: 'no-store' }).then(function (response) {
-        console.log("Estou tentando pegar idcaixa = ", idcaixa)
+    fetch(`/leituras/tempo-real/${idcaminhao}`, { cache: 'no-store' }).then(function (response) {
+        console.log("Estou tentando pegar idcaminhao = ", idcaminhao)
         if (response.ok) {
             response.json().then(function (novoRegistro) {
 
@@ -189,16 +190,16 @@ function atualizarGrafico(idcaixa, dados) {
                 dados.datasets[0].data.push(novoRegistro.temperatura); // incluir uma nova leitura de temperatura
               
 
-                console.log("minha caixa é o " + idcaixa)
+                console.log("minha caixa é o " + idcaminhao)
 
                 window.grafico_linha.update();
 
 
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idcaixa, dados), 5000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idcaminhao, dados), 5000);
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
-            proximaAtualizacao = setTimeout(() => atualizarGrafico(idcaixa, dados), 5000);
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(idcaminhao, dados), 5000);
         }
     })
         .catch(function (error) {
@@ -208,7 +209,7 @@ function atualizarGrafico(idcaixa, dados) {
 }
 
 // só altere aqui se souber o que está fazendo!
-function plotarGrafico(dados, idcaixa) {
+function plotarGrafico(dados, idcaminhao) {
     console.log('iniciando plotagem do gráfico...');
 
     var ctx = canvas_grafico.getContext('2d');
@@ -217,7 +218,7 @@ function plotarGrafico(dados, idcaixa) {
         options: configurarGrafico()
     });
 
-    setTimeout(() => atualizarGrafico(idcaixa, dados), 2000);
+    setTimeout(() => atualizarGrafico(idcaminhao, dados), 2000);
 }
 
 
@@ -250,9 +251,9 @@ function atualizacaoPeriodica() {
 
 
 
-function obterdadosporcaixa(idcaixa) {
+function obterdadosporcaixa(idcaminhao) {
     //aguardar();
-    fetch(`/leituras/tempo-real/${idcaixa}`)
+    fetch(`/leituras/tempo-real/${idcaminhao}`)
         .then(resposta => {
 
             if (resposta.ok) {
@@ -266,8 +267,8 @@ function obterdadosporcaixa(idcaixa) {
                         temperatura: resposta.temperatura,
                     }
 
-                    alertar(resposta.temperatura, idcaixa);
-                    atualizarTela(dados, idcaixa);
+                    alertar(resposta.temperatura, idcaminhao);
+                    atualizarTela(dados, idcaminhao);
                 });
             } else {
 
@@ -279,7 +280,7 @@ function obterdadosporcaixa(idcaixa) {
         });
 }
 
-function alertar(temperatura, idcaixa) {
+function alertar(temperatura, idcaminhao) {
     // padrão para meu alerta
     var limites = {
         max_temperatura: 40,
@@ -303,16 +304,16 @@ function alertar(temperatura, idcaixa) {
     // escolhendo qual alterar
     var div_temperatura_alterar
 
-    if (idcaixa == 1) {
+    if (idcaminhao == 1) {
         div_temperatura_alterar = div_alerta_temperatura
 
-    } else if (idcaixa == 2) {
+    } else if (idcaminhao == 2) {
         div_temperatura_alterar = div_alerta_temperatura2
 
-    } else if (idcaixa == 3) {
+    } else if (idcaminhao == 3) {
         div_temperatura_alterar = div_alerta_temperatura3
 
-    } else if (idcaixa == 4) {
+    } else if (idcaminhao == 4) {
         div_temperatura_alterar = div_alerta_temperatura4
 
     }
@@ -325,22 +326,22 @@ function alertar(temperatura, idcaixa) {
 }
 
 // só altere aqui se souber o que está fazendo!
-function atualizarTela(dados, idcaixa) {
+function atualizarTela(dados, idcaminhao) {
     console.log('iniciando atualização da tela...');
 
     // escolhendo qual alterar
     var div_temperatura_alterar
 
-    if (idcaixa == 1) {
+    if (idcaminhao == 1) {
         div_temperatura_alterar = div_temperatura
 
-    } else if (idcaixa == 2) {
+    } else if (idcaminhao == 2) {
         div_temperatura_alterar = div_temperatura2
 
-    } else if (idcaixa == 3) {
+    } else if (idcaminhao == 3) {
         div_temperatura_alterar = div_temperatura3
 
-    } else if (idcaixa == 4) {
+    } else if (idcaminhao == 4) {
         div_temperatura_alterar = div_temperatura4
 
     }

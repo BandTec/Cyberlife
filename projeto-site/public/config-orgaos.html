@@ -14,26 +14,33 @@
 <body>
     <div class="div-esquerda">
         <a href="dashboard.html"><img class="logo-home" src="img/sair.png"></a>
-        <h1 class="configurar"> Configurar </h1>
-        <div class="inputs">
-            <span style="color:white;">Inserir órgão</span>
-            <input type="text" id="orgao" placeholder="Ex: coração" class="input-orgao">
-            <br><br>
-            <!--type = password faz o campo ficar com asterisco ao invés de caracter escrito-->
-            <span style="color:white;">Inserir a temperatura ideal</span>
-            <input type="text" id="temperatura" placeholder="Ex: 4" class="input-temperatura">
-            <br><br>
-            <span style="color:white">Adicionar funcionário</span>
-            <input type="text" id="funcionario" placeholder="Ex: Jaime" class="input-permissoes">
-            <br><br>
-            <span style="color:white">Adicionar permissões</span>
-            <select class="input-orgao" name="" id="combo_admin">
-                <option value="selecionar">Usuario Administrador?</option>
-                <option value="1">Sim</option>
-                <option value="0">Não</option>
-            </select>
-            <br><br>
-            <button class="button-entrar" onclick="confirmar()"><b>Confirmar</b></button>
+        <h1 class="configurar"> Adicionar Usuário </h1>
+        <form class="form" id="form_cadastro" method="post" onsubmit="return cadastrar()">
+
+            <h2 class="titulo-padrao">Nome completo</h2>
+            <input type="text" name="nome" class="input-padrao" autofocus="autofocus" placeholder="Nome e sobrenome" required minlength="4">
+            
+            <h2 class="titulo-padrao">Login</h2>
+            <input type="text" name="login" class="input-padrao" placeholder="Seu nome de usuário" required minlength="4">
+            
+            <h2 class="titulo-padrao">Senha</h2>
+            <input type="password" name="senha" class="input-padrao" placeholder="***************" required minlength="4">
+
+            <h2 class="titulo-padrao">Email</h2>
+            <input type="email" name="email" class="input-padrao" placeholder="E-mail">
+
+            
+            
+                
+            <input type="submit" id="btn_entrar" value="Confirmar" class="button-entrar">
+        </form>
+        <div class="extra">
+            <div id="div_erro" class="msg_erro">
+            </div>
+
+            <img src="img/loading.gif" id="img_aguarde">
+
+        </div>
         </div>
     </div>
 
@@ -47,13 +54,42 @@
 </html>
 
 <script>
-    function confirmar() {
-        alert("Dados atualizados")
 
-        temperatura.value = "";
-        orgao.value = "";
-        funcionario.value = "";
-        combo_admin.value = "selecionar";
+    function cadastrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
 
+                window.location.href='dashboard.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
     }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.display='block';
+        div_erro.style.display='none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        img_aguarde.style.display='none';
+        div_erro.style.display='block';
+    }
+
 </script>
