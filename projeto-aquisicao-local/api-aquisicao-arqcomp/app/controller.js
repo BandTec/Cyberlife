@@ -83,13 +83,13 @@ const temperature = ArduinoDataTemp.List[ArduinoDataTemp.List.length - 1];
 db.conectar()
     .then(() => {
         const sql = `
-        INSERT into dbo.leitura (temperatura, momento, id)
+        INSERT into dbo.leitura (temperatura, momento, idcaminhao)
         values (${temperature+10}, '${agora()}', 1);
-        INSERT into dbo.leitura (temperatura, momento, id)
+        INSERT into dbo.leitura (temperatura, momento, idcaminhao)
         values (${temperature-10}, '${agora()}', 2);
-        INSERT into dbo.leitura (temperatura, momento, id)
+        INSERT into dbo.leitura (temperatura, momento, idcaminhao)
         values (${temperature+5}, '${agora()}', 3);
-        INSERT into dbo.leitura (temperatura, momento, id)
+        INSERT into dbo.leitura (temperatura, momento, idcaminhao)
         values (${temperature-5}, '${agora()}', 4);`;
         console.log(sql);
     return db.sql.query(sql).then(()=>{

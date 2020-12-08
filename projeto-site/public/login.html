@@ -17,15 +17,16 @@
                 style="width:50px; margin-left:2%; margin-top:1%;cursor:pointer;"></a>
         <h1 class="conecte-se"> Conecte-se </h1>
         <br>
-        <form id="form_login" method="post" onsubmit="returnEntrar">
+        <form id="form_login" method="post" onsubmit="return entrar()">
             <div class="inputs">
                 <input type="text" id="login" name="login" placeholder="Email ou ID" class="input-email" required>
                 <br><br><br>
                 <input type="password" id="senha" name="senha" placeholder="Senha" class="input-senha" required>
                 <br><br>
             </div>
+            <button type="submit" class="button-entrar" id="btn_entrar"><b>Entrar</b></button>
         </form>
-        <button class="button-entrar" onclick="entrar()" id="btn_entrar"><b>Entrar</b></button>
+
         <div class="extra">
             <div id="div_erro" class="msg_erro">
             </div>
