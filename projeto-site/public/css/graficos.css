@@ -182,12 +182,16 @@ a {
 }
 
 .caminhao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     border: 2px solid #66CDAA;
     border-radius: 10px;
     display: block;
     width: 35%;
     margin: 10px 7%;
-    height: 160px;
+    height: 230px;
     float: left;
     text-align: center;
 
@@ -199,10 +203,13 @@ a {
 .caminhao .valores {
     margin:auto;
     overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .caminhao .valores .valor {
-    margin-left: 13%;
+    /* margin-left: 13%; */
     width: 30%;
     float: left;
 }
@@ -212,15 +219,18 @@ a {
     margin:auto;
     margin-top: 5px;
     overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .caminhao .alertas .alerta {
-    margin-left: 13%;
+    /* margin-left: 13%; */
     width: 30%;
     float: left;
 }
 .caminhao .alertas .alerta_umidd {
-    margin-right: 13%;
+    /* margin-right: 13%; */
     width: 30%;
     float: right;
 }

@@ -16,6 +16,7 @@
 
         .normal {
             background-color: white;
+            color: green;
         }
 
         .alerta-alto {
@@ -167,8 +168,8 @@
     function alertar(temperatura, umidade, idleitura) {
         // padrão para meu alerta
         var limites = {
-            max_temperatura: 40,
-            min_temperatura: 20,
+            max_temperatura: 5,
+            min_temperatura: 4,
             max_umidade: 80,
             min_umidade: 50,
         };
@@ -177,29 +178,29 @@
         var mensagem_temperatura = '';
         var mensagem_umidade = '';
         var classe_temperatura = 'alerta';
-        // var classe_umidade = 'alerta_umidd';
+        var classe_umidade = 'alerta_umidd';
 
         // comparando
         if (temperatura > limites.max_temperatura) {
             mensagem_temperatura += 'Temperatura alta demais! <br>';
             classe_temperatura = 'alerta alerta-alto';
         }
-        // if (umidade > limites.max_umidade) {
-        //     mensagem_umidade += 'Umidade alta demais! <br>';
-        //     classe_umidade = 'alerta_umidd alerta-alto';
-        // }
+        if (umidade > limites.max_umidade) {
+            mensagem_umidade += 'Umidade alta demais! <br>';
+            classe_umidade = 'alerta_umidd alerta-alto';
+        }
         if (temperatura < limites.min_temperatura) {
             mensagem_temperatura = 'Temperatura baixa demais! <br>';
             classe_temperatura = 'alerta alerta-baixo';
         }
-        // if (umidade < limites.min_umidade) {
-        //     mensagem_umidade = 'Umidade baixa demais! <br>';
-        //     classe_umidade = 'alerta_umidd alerta-baixo';
-        // }
+        if (umidade < limites.min_umidade) {
+            mensagem_umidade = 'Umidade baixa demais! <br>';
+            classe_umidade = 'alerta_umidd alerta-baixo';
+        }
 
         // escolhendo qual alterar
         var div_temperatura_alterar
-        // var div_umidade_alterar
+        var div_umidade_alterar
 
         if (idleitura == 1) {
             div_temperatura_alterar = div_alerta_temperatura
@@ -229,7 +230,7 @@
 
         // escolhendo qual alterar
         var div_temperatura_alterar
-        // var div_umidade_alterar
+        var div_umidade_alterar
 
         if (idleitura == 1) {
             div_temperatura_alterar = div_temperatura
@@ -245,7 +246,7 @@
             // div_umidade_alterar = div_umidade4
         }
 
-        div_temperatura_alterar.innerHTML = `Temperatura: ${dados.temperatura.toFixed(0)}º`;
+        div_temperatura_alterar.innerHTML = `Temperatura: ${dados.temperatura.toFixed(0)}ºC`;
 
         // div_umidade_alterar.innerHTML = `Umidade: ${dados.umidade}%`;
 

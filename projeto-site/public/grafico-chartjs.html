@@ -79,7 +79,7 @@
     function chamargraficos(idleitura) {
 
         obterDadosGraficoPrimeiraVez(idleitura)
-        //atualizarGrafico(idleitura)
+        atualizarGrafico(idleitura)
 
     }
 
@@ -109,10 +109,10 @@
                     position: 'left',
                     id: 'y-temperatura',
                 }, {
-                    // type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-                    // display: true,
-                    // position: 'right',
-                    // id: 'y-umidade',
+                    type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                    display: true,
+                    position: 'right',
+                    id: 'y-umidade',
 
                     // grid line settings
                     gridLines: {
