@@ -38,8 +38,10 @@
     <!--header inicio-->
 
     <div class="header">
+        <img src="img/healthcare.png" class="icone">
         <div class="container">
-            <h1 class="titulo">Cyber<span class="highlight">Life</span><img src="img/healthcare.png" class="icone"> Gráficos  </h1>
+            
+            <h1 class="titulo">Cyber<span class="highlight">Life</span> Gráficos  </h1>
             <div class="usuario">
                 <h3>Olá, <b id="b_usuario"></b></h3>
             </div>
@@ -98,7 +100,7 @@
             stacked: false,
             title: {
                 display: true,
-                text: 'Histórico recente de temperatura e umidade'
+                text: 'Histórico recente de temperatura'
             },
             scales: {
                 yAxes: [{
@@ -107,10 +109,10 @@
                     position: 'left',
                     id: 'y-temperatura',
                 }, {
-                    type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-                    display: true,
-                    position: 'right',
-                    id: 'y-umidade',
+                    // type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                    // display: true,
+                    // position: 'right',
+                    // id: 'y-umidade',
 
                     // grid line settings
                     gridLines: {

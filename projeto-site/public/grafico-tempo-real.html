@@ -20,12 +20,12 @@
 
         .alerta-alto {
             color: tomato;
-            
+
         }
 
         .alerta-baixo {
             color: rgb(38, 0, 255);
-            
+
         }
     </style>
 </head>
@@ -34,8 +34,10 @@
     <!--header inicio-->
 
     <div class="header">
+        <img src="img/healthcare.png" class="icone">
         <div class="container">
-            <h1 class="titulo">Cyber<span class="highlight">Life</span><img src="img/healthcare.png" class="icone"> Gráficos  </h1>
+            <h1 class="titulo">Cyber<span class="highlight">Life</span> Gráficos</h1>
+             
             <div class="usuario">
                 <h3>Olá, <b id="b_usuario"></b></h3>
             </div>
@@ -58,11 +60,11 @@
                 <h4>Caixa <span name="namecaminhao" id="idleitura" value="1">1</span></h4>
                 <div class="valores">
                     <div class="valor" id="div_temperatura">Temperatura sendo obtida...</div>
-                    <div class="valor" id="div_umidade">Umidade sendo obtida...</div>
+
                 </div>
                 <div class="alertas">
                     <div class="alerta" id="div_alerta_temperatura"> </div>
-                    <div class="alerta_umidd" id="div_alerta_umidade"></div>
+
                 </div>
             </div>
 
@@ -70,12 +72,12 @@
                 <h4>Caixa <span name="namecaminhao" id="idleitura" value="2">2</span></h4>
                 <div class="valores">
                     <div class="valor" id="div_temperatura2">Temperatura sendo obtida...</div>
-                    <div class="valor" id="div_umidade2">Umidade sendo obtida...</div>
+
                 </div>
 
                 <div class="alertas">
                     <div class="alerta" id="div_alerta_temperatura2"></div>
-                    <div class="alerta_umidd" id="div_alerta_umidade2"></div>
+
                 </div>
             </div>
 
@@ -83,11 +85,11 @@
                 <h4>Caixa <span name="namecaminhao" id="idleitura" value="3">3</span></h4>
                 <div class="valores">
                     <div class="valor" id="div_temperatura3">Temperatura sendo obtida...</div>
-                    <div class="valor" id="div_umidade3">Umidade sendo obtida...</div>
+
                 </div>
                 <div class="alertas">
                     <div class="alerta" id="div_alerta_temperatura3"></div>
-                    <div class="alerta_umidd" id="div_alerta_umidade3"></div>
+
                 </div>
             </div>
 
@@ -95,12 +97,12 @@
                 <h4>Caixa <span name="namecaminhao" id="idleitura" value="4">4</span></h4>
                 <div class="valores">
                     <div class="valor" id="div_temperatura4">Temperatura sendo obtida...</div>
-                    <div class="valor" id="div_umidade4">Umidade sendo obtida...</div>
+
                 </div>
 
                 <div class="alertas">
                     <div class="alerta" id="div_alerta_temperatura4"></div>
-                    <div class="alerta_umidd" id="div_alerta_umidade4"></div>
+
                 </div>
             </div>
 
@@ -130,34 +132,34 @@
         setTimeout(atualizacaoPeriodica, 5000);
     }
 
-    
+
 
     function obterdadosporcaminhao(idleitura) {
         //aguardar();
         fetch(`/leituras/tempo-real/${idleitura}`)
-        .then(resposta => {
+            .then(resposta => {
 
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
 
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    // aqui, após registro. use os nomes 
-                    // dos atributos que vem no JSON 
-                    var dados = {
-                        temperatura: resposta.temperatura,
-                        umidade: resposta.umidade
-                    }
+                        // aqui, após registro. use os nomes 
+                        // dos atributos que vem no JSON 
+                        var dados = {
+                            temperatura: resposta.temperatura,
+                            umidade: resposta.umidade
+                        }
 
-                    alertar(resposta.temperatura, resposta.umidade, idleitura);
-                    atualizarTela(dados, idleitura);
-                });
-            } else {
+                        alertar(resposta.temperatura, resposta.umidade, idleitura);
+                        atualizarTela(dados, idleitura);
+                    });
+                } else {
 
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-        .catch(function (error) {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
                 console.error(`Erro na obtenção dos dados do caminhao p/ gráfico: ${error.message}`);
             });
     }
@@ -175,50 +177,50 @@
         var mensagem_temperatura = '';
         var mensagem_umidade = '';
         var classe_temperatura = 'alerta';
-        var classe_umidade = 'alerta_umidd';
+        // var classe_umidade = 'alerta_umidd';
 
         // comparando
         if (temperatura > limites.max_temperatura) {
             mensagem_temperatura += 'Temperatura alta demais! <br>';
             classe_temperatura = 'alerta alerta-alto';
         }
-        if (umidade > limites.max_umidade) {
-            mensagem_umidade += 'Umidade alta demais! <br>';
-            classe_umidade = 'alerta_umidd alerta-alto';
-        }
+        // if (umidade > limites.max_umidade) {
+        //     mensagem_umidade += 'Umidade alta demais! <br>';
+        //     classe_umidade = 'alerta_umidd alerta-alto';
+        // }
         if (temperatura < limites.min_temperatura) {
             mensagem_temperatura = 'Temperatura baixa demais! <br>';
             classe_temperatura = 'alerta alerta-baixo';
         }
-        if (umidade < limites.min_umidade) {
-            mensagem_umidade = 'Umidade baixa demais! <br>';
-            classe_umidade = 'alerta_umidd alerta-baixo';
-        }
+        // if (umidade < limites.min_umidade) {
+        //     mensagem_umidade = 'Umidade baixa demais! <br>';
+        //     classe_umidade = 'alerta_umidd alerta-baixo';
+        // }
 
         // escolhendo qual alterar
         var div_temperatura_alterar
-        var div_umidade_alterar
+        // var div_umidade_alterar
 
         if (idleitura == 1) {
             div_temperatura_alterar = div_alerta_temperatura
-            div_umidade_alterar = div_alerta_umidade
+            // div_umidade_alterar = div_alerta_umidade
         } else if (idleitura == 2) {
             div_temperatura_alterar = div_alerta_temperatura2
-            div_umidade_alterar = div_alerta_umidade2
+            // div_umidade_alterar = div_alerta_umidade2
         } else if (idleitura == 3) {
             div_temperatura_alterar = div_alerta_temperatura3
-            div_umidade_alterar = div_alerta_umidade3
+            // div_umidade_alterar = div_alerta_umidade3
         } else if (idleitura == 4) {
             div_temperatura_alterar = div_alerta_temperatura4
-            div_umidade_alterar = div_alerta_umidade4
+            // div_umidade_alterar = div_alerta_umidade4
         }
 
         // alterando
         div_temperatura_alterar.innerHTML = mensagem_temperatura;
         div_temperatura_alterar.className = classe_temperatura;
 
-        div_umidade_alterar.innerHTML = mensagem_umidade;
-        div_umidade_alterar.className = classe_umidade;
+        // div_umidade_alterar.innerHTML = mensagem_umidade;
+        // div_umidade_alterar.className = classe_umidade;
     }
 
     // só altere aqui se souber o que está fazendo!
@@ -227,27 +229,27 @@
 
         // escolhendo qual alterar
         var div_temperatura_alterar
-        var div_umidade_alterar
+        // var div_umidade_alterar
 
         if (idleitura == 1) {
             div_temperatura_alterar = div_temperatura
-            div_umidade_alterar = div_umidade
+            // div_umidade_alterar = div_umidade
         } else if (idleitura == 2) {
             div_temperatura_alterar = div_temperatura2
-            div_umidade_alterar = div_umidade2
+            // div_umidade_alterar = div_umidade2
         } else if (idleitura == 3) {
             div_temperatura_alterar = div_temperatura3
-            div_umidade_alterar = div_umidade3
+            // div_umidade_alterar = div_umidade3
         } else if (idleitura == 4) {
             div_temperatura_alterar = div_temperatura4
-            div_umidade_alterar = div_umidade4
+            // div_umidade_alterar = div_umidade4
         }
 
-        div_temperatura_alterar.innerHTML = `Temperatura: ${dados.temperatura}º`;
+        div_temperatura_alterar.innerHTML = `Temperatura: ${dados.temperatura.toFixed(0)}º`;
 
-        div_umidade_alterar.innerHTML = `Umidade: ${dados.umidade}%`;
+        // div_umidade_alterar.innerHTML = `Umidade: ${dados.umidade}%`;
 
-        
+
 
     }
 

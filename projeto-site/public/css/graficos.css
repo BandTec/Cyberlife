@@ -19,11 +19,16 @@ a {
 /* CABEÇALHO */
 
 .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background-color: #232323;
-    border-right: 3px solid #66CDAA;
+    border-right: 5px solid #66CDAA;
     width: 20%;
     height: 100%;
     position: fixed;
+
 }
 
 .header .container .highlight {
@@ -43,21 +48,24 @@ a {
 }
 
 .header h1 {
+    text-align: center;
     margin: 0;
     padding: 0;
     float: left;
     margin: 35px;
     color: white;
-    font-size: 25px;
+    font-size: 30px;
     padding-bottom: 50px;
     border-bottom: 2px solid #66CDAA;
 }
 
 .header .icone {
-    position: absolute;
-    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
 
-    margin-left: 5%;
+    /* margin-top: 100px; */
 }
 
 .header ul {
