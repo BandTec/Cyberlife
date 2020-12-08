@@ -4,12 +4,12 @@ var sequelize = require('../models').sequelize;
 var Leitura = require('../models').Leitura;
 
 /* Recuperar as últimas N leituras */
-router.get('/ultimas/:idcaixa', function(req, res, next) {
+router.get('/ultimas/:fkCaixa', function(req, res, next) {
 	
 	// quantas são as últimas leituras que quer? 8 está bom?
 	const limite_linhas = 7;
 
-	var idcaminhao = req.params.idcaixa;
+	var fkCaixa = req.params.fkCaixa;
 
 	console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
 	
@@ -18,8 +18,8 @@ router.get('/ultimas/:idcaixa', function(req, res, next) {
 						momento,
 						FORMAT(momento,'HH:mm:ss') as momento_grafico
 						from leitura
-						where idcaixa = ${idcaminhao}
-						order by id desc`;
+						where fkCaixa = ${fkCaixa}
+						order by idleitura desc`;
 
 	sequelize.query(instrucaoSql, {
 		model: Leitura,
@@ -40,7 +40,7 @@ router.get('/ultimas/:idcaixa', function(req, res, next) {
 	
 	console.log(`Recuperando a ultima leitura`);
 
-	const instrucaoSql = `select top 4 temperatura, umidade, FORMAT(momento,'HH:mm:ss') as momento_grafico, idcaminhao from leitura order by id desc`;
+	const instrucaoSql = `select top 4 temperatura, umidade, FORMAT(momento,'HH:mm:ss') as momento_grafico, idleitura from leitura order by id desc`;
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
@@ -53,13 +53,13 @@ router.get('/ultimas/:idcaixa', function(req, res, next) {
 });
 */
 
-router.get('/tempo-real/:idcaixa', function(req, res, next) {
+router.get('/tempo-real/:fkCaixa', function(req, res, next) {
 	console.log('Recuperando caminhões');
 
-	//var idcaminhao = req.body.idcaixa; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var idcaminhao = req.params.idcaixa;
+	//var idleitura = req.body.idcaixa; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var fkCaixa = req.params.fkCaixa;
 
-	let instrucaoSql = `select top 1 temperatura, FORMAT(momento,'HH:mm:ss') as momento_grafico, idcaixa from leitura where idcaixa = ${idcaminhao} order by id desc`;
+	let instrucaoSql = `select top 1 temperatura, FORMAT(momento,'HH:mm:ss') as momento_grafico, fkCaixa from leitura where fkCaixa = ${fkCaixa} order by idleitura desc`;
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })

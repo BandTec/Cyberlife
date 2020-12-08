@@ -74,10 +74,10 @@
     window.onload = obterDadosGraficoPrimeiraVez(1);
 
 
-    function chamargraficos(idcaminhao) {
+    function chamargraficos(idleitura) {
 
-        obterDadosGraficoPrimeiraVez(idcaminhao)
-        //atualizarGrafico(idcaminhao)
+        obterDadosGraficoPrimeiraVez(idleitura)
+        //atualizarGrafico(idleitura)
 
     }
 
@@ -125,13 +125,13 @@
 
     // altere aqui como os dados serão exibidos
     // e como são recuperados do BackEnd
-    function obterDadosGraficoPrimeiraVez(idcaminhao) {
+    function obterDadosGraficoPrimeiraVez(idleitura) {
 
         if (proximaAtualizacao!=undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/leituras/ultimas/${idcaminhao}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/leituras/ultimas/${idleitura}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -167,7 +167,7 @@
                     }
                     console.log(JSON.stringify(dados));
                     div_aguarde.style.display = 'none';
-                    plotarGrafico(dados, idcaminhao);
+                    plotarGrafico(dados, idleitura);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -183,10 +183,10 @@
 
     // só mexer se quiser alterar o tempo de atualização
     // ou se souber o que está fazendo!
-    function atualizarGrafico(idcaminhao, dados) {
+    function atualizarGrafico(idleitura, dados) {
 
-        fetch(`/leituras/tempo-real/${idcaminhao}`, { cache: 'no-store' }).then(function (response) {
-            console.log("Estou tentando pegar idcaminhao = ", idcaminhao)
+        fetch(`/leituras/tempo-real/${idleitura}`, { cache: 'no-store' }).then(function (response) {
+            console.log("Estou tentando pegar idleitura = ", idleitura)
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
@@ -201,16 +201,16 @@
                     dados.datasets[0].data.push(novoRegistro.temperatura); // incluir uma nova leitura de temperatura
                     dados.datasets[1].data.push(novoRegistro.umidade); // incluir uma nova leitura de umidade
 
-                    console.log("meu caminhão é o " + idcaminhao)
+                    console.log("meu caminhão é o " + idleitura)
 
                     window.grafico_linha.update();
 
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idcaminhao, dados), 5000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idleitura, dados), 5000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idcaminhao, dados), 5000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idleitura, dados), 5000);
             }
         })
             .catch(function (error) {
@@ -220,7 +220,7 @@
     }
 
     // só altere aqui se souber o que está fazendo!
-    function plotarGrafico(dados, idcaminhao) {
+    function plotarGrafico(dados, idleitura) {
         console.log('iniciando plotagem do gráfico...');
 
         var ctx = canvas_grafico.getContext('2d');
@@ -229,7 +229,7 @@
             options: configurarGrafico()
         });
 
-        setTimeout(() => atualizarGrafico(idcaminhao, dados), 2000);
+        setTimeout(() => atualizarGrafico(idleitura, dados), 2000);
     }
 
 
