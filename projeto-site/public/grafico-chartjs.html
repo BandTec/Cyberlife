@@ -10,12 +10,12 @@
 
     <!-- script do google charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <!-- <script type="text/javascript" src="funcoes.js"></script> -->
+    <script type="text/javascript" src="funcoes.js"></script>
 
     <!-- scripts do Chart.js -->
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
     <script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
-    <!-- <script type="text/javascript" src="funcoes.js"></script> -->
+    <script type="text/javascript" src="funcoes.js"></script>
 
     <style>
         /* Classes CSS para exemplos de alertas */
@@ -49,6 +49,7 @@
                 <ul>
                     <li> <a href="grafico-tempo-real.html">Tempo Real</a></li>
                     <li><a href="index.html" class="highlight" onclick="logoff()">LOGOUT</a></li>
+                    <li> <a href="dashboard.html" class="highlight"> Dashboard </a> </li>
                 </ul>
             </div>
         </div>
@@ -145,26 +146,18 @@
                             {
                                 yAxisID: 'y-temperatura',
                                 label: 'Temperatura',
-                                borderColor: window.chartColors.red,
-                                backgroundColor: window.chartColors.red,
-                                fill: false,
-                                data: []
-                            },
-                            {
-                                yAxisID: 'y-umidade',
-                                label: 'Umidade',
-                                borderColor: window.chartColors.blue,
-                                backgroundColor: window.chartColors.blue,
+                                borderColor: "red",
+                                backgroundColor: "red",
                                 fill: false,
                                 data: []
                             }
+                            
                         ]
                     };
                     for (i = 0; i < resposta.length; i++) {
                         var registro = resposta[i];
                         dados.labels.push(registro.momento_grafico);
                         dados.datasets[0].data.push(registro.temperatura);
-                        dados.datasets[1].data.push(registro.umidade);
 
                     }
                     console.log(JSON.stringify(dados));
@@ -199,9 +192,7 @@
                     dados.labels.shift(); // apagar o primeiro
                     dados.labels.push(novoRegistro.momento_grafico); // incluir um novo momento
                     dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
-                    dados.datasets[1].data.shift();  // apagar o primeiro de umidade
                     dados.datasets[0].data.push(novoRegistro.temperatura); // incluir uma nova leitura de temperatura
-                    dados.datasets[1].data.push(novoRegistro.umidade); // incluir uma nova leitura de umidade
 
                     console.log("meu caminhão é o " + idleitura)
 

@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		inicio: {
 			field: 'inicio',
-			type: DataTypes.DATE,
+			type: DataTypes.STRING,
 			allowNull: false
 		},
 		fim: {
 			field: 'fim',
-			type: DataTypes.DATE,
+			type: DataTypes.STRING,
 			allowNull: false
 		},
 		fkCaixa: {
@@ -36,11 +36,6 @@ module.exports = (sequelize, DataTypes) => {
 				model: 'Orgao',
 				key: 'idOrgao'
 			}
-		},
-		nomeTransportador: {
-			field: 'nomeTransportador',
-			type: DataTypes.STRING,
-			allowNull: false
 		},
 	}, 
 	{

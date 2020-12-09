@@ -5,21 +5,11 @@ var Rota = require('../models').Rota;
 
 router.post('/cadastro/rota', (req, res, next) => {
 	console.log('Criando um usuário');
-    
-    var data = req.body.inicio;
-    var dataFormatada1 = new Date(data);
-
-    var data2 = req.body.fim;
-    var dataFormatada2 = new Date(data2);
-
-    sequelize.fn(GETDATE);
-
 	Rota.create({
-		inicio : dataFormatada1,
-		fim : dataFormatada2,
+		inicio : req.body.inicio,
+		fim : req.body.fim,
 		fkCaixa : req.body.caixa,
-		fkOrgao : req.body.orgao,
-		nomeTransportador : 'José'
+		fkOrgao : req.body.orgao
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
         res.send(resultado);
