@@ -62,24 +62,27 @@
                 <!-- tempo -->
 
                 <div class="tempo" style="color: black">
-                    <b>Inicio:</b>
-                    <input type="datetime" name="inicio" id="inicio" placeholder="Ex: 2000/04/15 12:01:36" class="x"
-                        required>
-                    <b>Fim:</b>
-                    <input type="datetime" name="fim" id="fim" placeholder="Ex: 2000/04/15 12:01:36" class="x" required>
+                    <div class="inicio">
+                        <b>Inicio:</b>
+                        <input type="datetime" name="inicio" id="inicio" placeholder="Ex: 2000/04/15 12:01:36" class="x"
+                            required>
+                    </div>
+                    <div class="fim">
+                        <b>Fim:</b>
+                        <input type="datetime" name="fim" id="fim" placeholder="Ex: 2000/04/15 12:01:36" class="x"
+                            required>
+                    </div>
                 </div>
                 <!-- botao -->
                 <div class="botao-iniciar">
                     <button type="submit" class="button-entrar" id="btn_entrar"><b>Ok</b></button>
                 </div>
             </form>
-        </div>
-        <!-- caixa alerta -->
-        <div class="box-alerta">
-            <div class="alerta">
-                <b>MENSAGEM DE ALERTA</b>
+            <div class="botao-dashboard">
+                <button onclick="telaDashboard()" class="button-dashboard" id="btn_dashboard"><b>Dashboard</b></button>
             </div>
         </div>
+        <!-- caixa alerta -->
     </div>
 
 

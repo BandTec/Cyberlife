@@ -1,7 +1,6 @@
 /* GLOBAL */
 body {
   color: #66CDAA;
-  
 }
 
 *{
@@ -124,8 +123,8 @@ margin:-80px 0px 0px 200px;
 
 .painel {
   display: flex;
-
   margin: auto;
+  margin-left: 13%;
   margin-top: 5%;
   width: 82%;
   height: 300px;
@@ -134,8 +133,8 @@ margin:-80px 0px 0px 200px;
 .painel .box-iniciar {
   display: flex;
   flex-direction: column;
-
-  width: 50%;
+  margin-left: 0%;
+  width: 90%;
 }
 
 .box-alerta {
@@ -206,11 +205,11 @@ margin:-80px 0px 0px 200px;
   border: #363636 5px solid;
   border-radius: 10px;
   background-color: #e3e3e3;
+  height: 350px;
 }
 
 .box-iniciar .tempo {
   display: flex;
-  flex-direction: row;
   margin: auto;
   margin-top: 5%;
   margin-bottom: 0;
@@ -229,12 +228,17 @@ margin-right: 10px;
 margin-left: 10px;
 color: #363636;
 
+
 }
 
 .x {
   border-radius: 5px;
   border: none;
   height: 30px;
+}
+
+.fim {
+  padding-left: 250px;
 }
 /* fim tempo */
 
@@ -246,6 +250,31 @@ color: #363636;
   align-items: center;
   justify-content: center;
 }
+
+.botao-dashboard{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.button-dashboard{
+  font-size: 15px;
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
+  outline: 0;
+  border: 0;
+  background: #66CDAA;
+  color: #363636;
+  cursor: pointer;
+}
+
+.button-dashboard:hover{
+    transition: 0.2s;
+    color: #66CDAA;
+    background-color: #363636 ;
+  }
 
 .box-iniciar .botao-iniciar button {
   
