@@ -1,0 +1,9 @@
+Jorge : 1,2,3
+
+Miranda: 4,5,11
+
+Gabriel: 6,11
+
+Pinheiro: 7,12
+
+Bruno: 8,9,10
