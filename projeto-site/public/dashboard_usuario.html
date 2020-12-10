@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Dashboard</title>
     <link rel="SHORTCUT ICON" href="img/healthcare.png">
+    <script type="text/javascript" src="funcoes.js"></script>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- painel -->
     <div class="painel">
         <!-- caixa iniciar -->
@@ -99,6 +100,9 @@
 </html>
 
 <script>
+    let usuario;
+
+    verificar_autenticacao();
 
     function entrar() {
         aguardar();

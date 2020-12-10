@@ -38,10 +38,10 @@
     <!--header inicio-->
 
     <div class="header">
-         <img src="img/healthcare.png" class="icone"> 
+        <img src="img/healthcare.png" class="icone">
         <div class="container">
-            
-            <h1 class="titulo">Cyber<span class="highlight">Life</span> Gráficos  </h1>
+
+            <h1 class="titulo">Cyber<span class="highlight">Life</span> Gráficos </h1>
             <div class="usuario">
                 <h3>Olá, <b id="b_usuario"></b></h3>
             </div>
@@ -71,7 +71,11 @@
 
 </html>
 <script>
-    
+
+    let usuario;
+
+    verificar_autenticacao();
+
     let proximaAtualizacao;
 
     window.onload = obterDadosGraficoPrimeiraVez(1);
@@ -130,7 +134,7 @@
     // e como são recuperados do BackEnd
     function obterDadosGraficoPrimeiraVez(idleitura) {
 
-        if (proximaAtualizacao!=undefined) {
+        if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
@@ -151,7 +155,7 @@
                                 fill: false,
                                 data: []
                             }
-                            
+
                         ]
                     };
                     for (i = 0; i < resposta.length; i++) {

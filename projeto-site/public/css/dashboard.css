@@ -38,8 +38,16 @@ body {
 .header{
   background-color: #363636;
   height: 80px;
+  width: 100%;
   padding-top: 30px;
   border-bottom: #66CDAA solid 5px;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 5px;
+  
 }
 .header .nav .home, 
 .header span{
@@ -53,9 +61,9 @@ body {
 
 .header .nav  img {
   width: 35px;
-  margin-top: -21px;
-  margin-left: 280px;
-  position: absolute;
+  /* margin-top: -21px; */
+  /* margin-left: 280px; */
+  /* position: absolute; */
 }
 
 .engrenagem :hover {
@@ -66,7 +74,7 @@ body {
 .title-header h1,
 .nav ul
 {
-  margin: -5px;
+  /* margin: -5px; */
 }
 
 .nav .home1 :hover{
@@ -98,12 +106,12 @@ body {
 
 .title-header .icone {
 width: 80px;
-margin:-80px 0px 0px 200px;
+margin:-70px 0px 30px 200px;
 }
 
 .nav{
-  float: right;
-  margin-top: 10px;
+  /* float: right; */
+  /* margin-top: 10px; */
 }
 
 .nav a{
@@ -113,8 +121,7 @@ margin:-80px 0px 0px 200px;
 
 .nav li{
   display: inline-block;
-  padding: 20px;
-  padding: 10px 20px 0 20px;
+  margin-right: 20px;
 }
 
 /* FIM HEADER E NAV */
@@ -205,7 +212,7 @@ margin:-80px 0px 0px 200px;
   border: #363636 5px solid;
   border-radius: 10px;
   background-color: #e3e3e3;
-  height: 350px;
+  height: 380px;
 }
 
 .box-iniciar .tempo {
@@ -276,10 +283,10 @@ color: #363636;
     background-color: #363636 ;
   }
 
+
 .box-iniciar .botao-iniciar button {
   
-  
-  font-size: 26px;
+  font-size: 23px;
   height: 40px;
   width: 100px;
   border-radius: 20px;
@@ -295,6 +302,33 @@ color: #363636;
   color: #66CDAA;
   background-color: #363636 ;
 }
+
+.div-botao {
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.div-botao button {
+  margin: auto;
+  font-size: 15px;
+  font-weight: bold;
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
+  outline: 0;
+  border: 0;
+  background: #66CDAA;
+  color: #363636;
+  cursor: pointer;
+}
+
+.div-botao button:hover {
+  transition: 0.2s;
+  color: #66CDAA;
+  background-color: #363636;
+}
+
 
 /* fim botao */
 

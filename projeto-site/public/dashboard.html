@@ -32,7 +32,9 @@
                 <ul>
                     <li> <a class="home1" href="index_logado.html"> <b>Home</b></a> </li>
                     <li> <a class="dashboard1" href="dashboard.html"> <b>Dashboard</b> </a> </li>
-                    <li> <h3>Olá, <b id="b_usuario"></b></h3></li>
+                    <li>
+                        <h3>Olá, <b id="b_usuario"></b></h3>
+                    </li>
                 </ul>
                 <a href="config-orgaos.html"> <img class="engrenagem" src="img/engrenagem.png" alt=""> </a>
             </div>
@@ -84,13 +86,21 @@
                 </div>
                 <!-- botao -->
                 <div class="botao-iniciar">
-                    <button type="submit" class="button-entrar" id="btn_entrar"><b>Ok</b></button>
+                    <button type="submit" class="button-entrar" id="btn_entrar"
+                        style="visibility: hidden;"><b>Finalizar</b></button>
                 </div>
             </form>
+            <!-- botao iniciar -->
+            <div class="div-botao">
+                <button id="btn_iniciar" class="button-iniciar" onclick="iniciar()"> Iniciar</button>
+            </div>
+            <!-- botao para acessar os gráficos -->
             <div class="botao-dashboard">
                 <button onclick="telaDashboard()" class="button-dashboard" id="btn_dashboard"><b>Gráficos</b></button>
             </div>
+
         </div>
+
         <!-- caixa alerta -->
     </div>
 
@@ -100,6 +110,14 @@
 </html>
 
 <script>
+    let usuario;
+
+    verificar_autenticacao();
+
+    function iniciar() {
+        btn_entrar.style.visibility = 'visible';
+        btn_iniciar.style.visibility = 'hidden'
+    }
 
     function entrar() {
         aguardar();
@@ -114,6 +132,8 @@
                 resposta.json().then(json => {
 
                     console.log("Caixa cadastrada");
+                    inicio.value = "";
+                    fim.value = "";
 
                 });
 
