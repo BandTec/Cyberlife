@@ -1,9 +1,9 @@
-Jorge : 1,2,3
+Jorge : 1,2,3,7
 
-Miranda: 4,5,11
+Miranda: 4,5,6, 12
 
-Gabriel: 6,11
+Gabriel: 8,12
 
-Pinheiro: 7,12
+Pinheiro: 13,14,15
 
-Bruno: 8,9,10
+Bruno: 9,10,11
