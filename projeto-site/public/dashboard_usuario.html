@@ -39,66 +39,104 @@
             </div>
         </div>
     </div>
-    <div class="dashboard">
-        <button class="btn" onclick="chamargraficos(1)">Caixa 1</button>
-        <button class="btn" onclick="chamargraficos(2)">Caixa 2</button>
-        <button class="btn" onclick="chamargraficos(3)">Caixa 3</button>
-        <button class="btn" onclick="chamargraficos(4)">Caixa 4</button>
-        <div id="div_aguarde">Dados sendo obtidos...</div>
-        <canvas id="canvas_grafico"></canvas>
+    
+    <!-- painel -->
+    <div class="painel">
+        <!-- caixa iniciar -->
+        <div class="box-iniciar">
+            <form id="form_rota" method="post" onsubmit="return entrar()">
+                <div class="box-select">
 
-
-
-        <div class="dashboardcx">
-            <div class="containerdash">
-                <h3>GRÁFICOS</h3>
-
-                <div class="caixa">
-                    <h4>Caixa <span name="numerocaixa" id="idcaixa" value="1">1</span></h4>
-                    <div class="valores">
-                        <div class="valor" id="div_temperatura">Temperatura sendo obtida...</div>
+                    <!-- box select da caixa -->
+                    <div class="select-caixa">
+                        <b>Selecione a <span class="verde">caixa</span> </b>
+                        <select class="box-caixa" name="caixa" id="">
+                            <option value="0" disabled>-SELECIONE-</option>
+                            <option value="1">Caixa1</option>
+                            <option value="2">Caixa2</option>
+                            <option value="3">Caixa3</option>
+                            <option value="4">Caixa4</option>
+                        </select>
                     </div>
-                    <div class="alertas">
-                        <div class="alerta" id="div_alerta_temperatura"> </div>
-                    </div>
-                </div>
-
-                <div class="caixa">
-                    <h4>Caixa <span name="numerocaixa" id="idcaixa" value="2">2</span></h4>
-                    <div class="valores">
-                        <div class="valor" id="div_temperatura2">Temperatura sendo obtida...</div>
-                    </div>
-
-                    <div class="alertas">
-                        <div class="alerta" id="div_alerta_temperatura2"></div>
+                    <!-- box select do orgao -->
+                    <div class="select-orgao">
+                        <b>Selecione o <span class="verde">órgão</span> </b>
+                        <select name="orgao" id="">
+                            <option value="0" disabled>--SELECIONE--</option>
+                            <option value="5000">Coração</option>
+                            <option value="5001">Rim</option>
+                            <option value="5002">Pulmão</option>
+                        </select>
                     </div>
                 </div>
-                <div class="caixa">
-                    <h4>Caixa <span name="numerocaixa" id="idcaixa" value="3">3</span></h4>
-                    <div class="valores">
-                        <div class="valor" id="div_temperatura3">Temperatura sendo obtida...</div>
+                <!-- tempo -->
+
+                <div class="tempo" style="color: black">
+                    <div class="inicio">
+                        <b>Inicio:</b>
+                        <input type="datetime" name="inicio" id="inicio" placeholder="Ex: 03/04/2020 12:01:36" class="x"
+                            required>
                     </div>
-                    <div class="alertas">
-                        <div class="alerta" id="div_alerta_temperatura3"></div>
+                    <div class="fim">
+                        <b>Fim:</b>
+                        <input type="datetime" name="fim" id="fim" placeholder="Ex: 03/04/2020 12:01:36" class="x"
+                            required>
                     </div>
                 </div>
-
-                <div class="caixa">
-                    <h4>Caixa <span name="numerocaixa" id="idcaixa" value="4">4</span></h4>
-                    <div class="valores">
-                        <div class="valor" id="div_temperatura4">Temperatura sendo obtida...</div>
-                    </div>
-
-                    <div class="alertas">
-                        <div class="alerta" id="div_alerta_temperatura4"></div>
-                    </div>
+                <!-- botao -->
+                <div class="botao-iniciar">
+                    <button type="submit" class="button-entrar" id="btn_entrar"><b>Ok</b></button>
                 </div>
+            </form>
+            <div class="botao-dashboard">
+                <button onclick="telaDashboard()" class="button-dashboard" id="btn_dashboard"><b>Gráficos</b></button>
             </div>
         </div>
+        <!-- caixa alerta -->
     </div>
-    <footer class="rodape">
-        <h3>CYBER<span>LIFE</span> &COPY; 2020</h3>
-    </footer>
 </body>
 
 </html>
+
+<script>
+
+    function entrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_rota));
+        fetch("rotas/cadastro/rota", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    console.log("Caixa cadastrada");
+
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+
+    }
+
+    function finalizar_aguardar(resposta) {
+        btn_entrar.disabled = false;
+    }
+
+</script>

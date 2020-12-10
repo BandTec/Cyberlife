@@ -11,6 +11,10 @@
     <script type="text/javascript" src="funcoes.js"></script>
     <!-- css -->
     <link rel="SHORTCUT ICON" href="img/healthcare.png">
+    <!-- Start of cyberlifesupport Zendesk Widget script -->
+    <script id="ze-snippet"
+        src="https://static.zdassets.com/ekr/snippet.js?key=d5af1b1c-9be0-42f4-8e30-af71dcb00094"> </script>
+    <!-- End of cyberlifesupport Zendesk Widget script -->
 </head>
 
 <body>
@@ -28,7 +32,7 @@
                 <ul>
                     <li> <a class="home1" href="index_logado.html"> <b>Home</b></a> </li>
                     <li> <a class="dashboard1" href="dashboard.html"> <b>Dashboard</b> </a> </li>
-                    <li> <b>Admin</b></li>
+                    <li> <h3>Olá, <b id="b_usuario"></b></h3></li>
                 </ul>
                 <a href="config-orgaos.html"> <img class="engrenagem" src="img/engrenagem.png" alt=""> </a>
             </div>
@@ -110,7 +114,7 @@
                 resposta.json().then(json => {
 
                     console.log("Caixa cadastrada");
-   
+
                 });
 
             } else {
