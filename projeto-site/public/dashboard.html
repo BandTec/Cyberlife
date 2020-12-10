@@ -113,8 +113,10 @@
     let usuario;
 
     verificar_autenticacao();
+    validar_valor();
 
     function iniciar() {
+        localStorage.setItem(`inicio`,inicio.value)
         btn_entrar.style.visibility = 'visible';
         btn_iniciar.style.visibility = 'hidden'
     }
@@ -159,5 +161,14 @@
     function finalizar_aguardar(resposta) {
         btn_entrar.disabled = false;
     }
+
+ 
+ function validar_valor() {
+     if(localStorage.getItem(`inicio`)) {
+         inicio.value = localStorage.getItem(`inicio`)
+         btn_iniciar.style.visibility = `hidden`;
+         btn_entrar.style.visibility = `visible`;
+     }
+ }
 
 </script>

@@ -63,7 +63,11 @@
                     sessionStorage.login_usuario_meuapp = json.login;
                     sessionStorage.nome_usuario_meuapp = json.nome;
 
-                    window.location.href = 'dashboard.html';
+                    if (json.administrador == 1) {
+                        window.location.href = 'dashboard.html';
+                    } else {
+                        window.location.href = 'dashboard_usuario.html';
+                    }
                 });
 
             } else {

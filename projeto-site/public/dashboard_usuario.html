@@ -41,8 +41,8 @@
         </div>
     </div>
 
-    <!-- painel -->
-    <div class="painel">
+     <!-- painel -->
+     <div class="painel">
         <!-- caixa iniciar -->
         <div class="box-iniciar">
             <form id="form_rota" method="post" onsubmit="return entrar()">
@@ -86,15 +86,25 @@
                 </div>
                 <!-- botao -->
                 <div class="botao-iniciar">
-                    <button type="submit" class="button-entrar" id="btn_entrar"><b>Ok</b></button>
+                    <button type="submit" class="button-entrar" id="btn_entrar"
+                        style="visibility: hidden;"><b>Finalizar</b></button>
                 </div>
             </form>
+            <!-- botao iniciar -->
+            <div class="div-botao">
+                <button id="btn_iniciar" class="button-iniciar" onclick="iniciar()"> Iniciar</button>
+            </div>
+            <!-- botao para acessar os gráficos -->
             <div class="botao-dashboard">
                 <button onclick="telaDashboard()" class="button-dashboard" id="btn_dashboard"><b>Gráficos</b></button>
             </div>
+
         </div>
+
         <!-- caixa alerta -->
     </div>
+
+
 </body>
 
 </html>
@@ -103,6 +113,13 @@
     let usuario;
 
     verificar_autenticacao();
+    validar_valor();
+
+    function iniciar() {
+        localStorage.setItem(`inicio`,inicio.value)
+        btn_entrar.style.visibility = 'visible';
+        btn_iniciar.style.visibility = 'hidden'
+    }
 
     function entrar() {
         aguardar();
@@ -117,6 +134,8 @@
                 resposta.json().then(json => {
 
                     console.log("Caixa cadastrada");
+                    inicio.value = "";
+                    fim.value = "";
 
                 });
 
@@ -142,5 +161,14 @@
     function finalizar_aguardar(resposta) {
         btn_entrar.disabled = false;
     }
+
+ 
+ function validar_valor() {
+     if(localStorage.getItem(`inicio`)) {
+         inicio.value = localStorage.getItem(`inicio`)
+         btn_iniciar.style.visibility = `hidden`;
+         btn_entrar.style.visibility = `visible`;
+     }
+ }
 
 </script>
